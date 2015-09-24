@@ -1,0 +1,8 @@
+<%= simple_form_for [:mc, :locker, @round] do |f| %>
+	<%= f.input :start, as: :string, input_html: {class: "datetimepicker", data: {date_time: "", utc_offset: "8"}} %>
+	<%= f.input :end, as: :string, input_html: {class: "datetimepicker", data: {date_time: "", utc_offset: "8"}}  %>
+	<%= f.input :acad_year, input_html: {value: "AY15/16"} %>
+	<%= f.input :label, input_html: {value: "Round 1"} %>
+	<%= f.input :kind, collection: LockerRound.kinds.symbolize_keys.keys, include_blank: false %>
+	<%= f.button :submit %>
+<% end %>

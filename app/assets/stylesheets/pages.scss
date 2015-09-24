@@ -1,0 +1,24 @@
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.content {
+	.title {
+		color: #149;
+		font-style: italic;
+	}
+
+	.name {
+		color: #914;
+		font-weight: bold;
+	}
+
+	.cell-name h2{
+		color: #800;
+		font-weight: bold;
+	}
+
+	.major h4 {
+		color: #7A6666;
+	}
+}

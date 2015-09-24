@@ -1,0 +1,21 @@
+<h1>Locker <%= @locker.id %></h1>
+<div class="details">
+	<ul class="no-bullet panel">
+		<li>Locker Location: <%= @locker.location %></li>
+		<li>Locker Number: <%= @locker.number %></li>
+		<li>Status: <%= @locker.status %></li>
+		<li>Currently Allocated To: <%= link_to(@locker.current_allocation.user.uid, mc_locker_locker_allocation_path(@locker.current_allocation)) if @locker.current_allocation %></li>
+	</ul>
+	<ul class="accordion" data-accordion >
+		<li class="accordion-navigation" >
+			<a href="#previous-allocations">Previous Allocation</a>
+			<div id="previous-allocations" class="content">
+				<ul>
+					<% @locker.allocations.archived.each if @locker.allocations.archived do |alloc| %>
+						<li><%= link_to "#{alloc.user.uid} for #{alloc.round.acad_year}", mc_locker_locker_allocation_path(alloc) %></li>
+					<% end %>
+				</ul>
+			</div>
+		</li>
+	</ul>
+</div>

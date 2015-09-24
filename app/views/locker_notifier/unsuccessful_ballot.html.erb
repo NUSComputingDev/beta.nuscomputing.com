@@ -1,0 +1,10 @@
+<h1>Oops!</h1>
+
+<p>
+  <%= @greeting %>, 
+</p>
+<p>
+	Oops! You have not been allocated a locker for this round: <strong><%= @round.name %></strong>
+</p>
+<p>You may try your luck next round!</p>
+<p>If you have any enquiries, please send it to <%= mail_to "welfare@nuscomputing.com", "NUSComputing Club Welfare", subject: "[Locker] Enquiries" %></p>

@@ -1,0 +1,14 @@
+<h1 class="text-center">Locker Ballot</h1>
+<%= render 'mc/locker/navigations' %>
+<hr />
+<%= link_to "Create New Ballot", new_mc_locker_locker_ballot_path, class: "button radius success" %>
+<br>
+<%= simple_form_for :locker_ballot, url: mc_locker_locker_ballots_path, method: :get, remote: true do |f|  %>
+	<%= f.input :round, collection: LockerRound.order(acad_year: :desc), label_method: :name, value_method: :id, include_blank: false %>
+	<%= f.button :submit, "Retrieve", class: "radius info button expand", name: nil %>
+<% end %>
+
+<div class="ballot-data">
+	<%= render partial: 'ballots', locals: { ballots: @ballots } %>
+</div>
+

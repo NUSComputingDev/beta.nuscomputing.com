@@ -1,0 +1,18 @@
+<h1 class="text-center">Blog</h1>
+<div class="row">
+	<div class="columns small-4 medium-3">
+			<%= link_to new_mc_article_path, class: "radius button success" do %>
+				<%= fa_icon 'plus', text: "New Article", right: true %>
+			<% end %>
+	</div>
+	<div class="columns small-8 medium-9">
+		<div class="panel"><%= render @articles.first if @articles.first %></div>
+		<hr>
+		<ul>
+			<% @articles.each do |article| %>
+				<li><%= link_to article.title, mc_article_path(article) %></li>
+			<% end %>
+		</ul>
+	</div>
+</div>
+

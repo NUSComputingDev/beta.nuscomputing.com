@@ -1,0 +1,9 @@
+<h1>Locker Round</h1>
+<div>
+	<h3 class="subheader">Acad Year: <%= @round.acad_year %></h3>
+	<h3 class="subheader">Label: <%= @round.label %></h3>
+	<hr>
+	<%= local_time @round.start %> to <%= local_time @round.end %>
+
+	<%= link_to "Delete", mc_locker_locker_round_path(@round), method: :delete, data: { confirm: "Are you sure?" }, class: "button alert radius" %>
+</div>

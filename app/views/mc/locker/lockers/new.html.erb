@@ -1,0 +1,29 @@
+<h1>New Locker</h1>
+<p>To add new location. Please contact the Director to add it using code.</p>
+<hr>
+<ul class="accordion" data-accordion>
+	<li class="accordion-navigation">
+		<a href="#single">Single Locker</a>
+		<div id="single" class="content active">
+			<%= simple_form_for [:mc, :locker, @locker] do |f| %>
+				<%= f.input :location, collection: Locker.locations.symbolize_keys.keys, include_blank: false %>
+				<%= f.input :number %>
+				<%= f.input :status, collection: Locker.statuses.symbolize_keys.keys, include_blank: false %>
+				<%= f.button :submit %>
+			<% end %>
+		</div>
+	</li>
+
+	<li class="accordion-navigation">
+		<a href="#multiple">Multiple Lockers</a>
+		<div id="multiple" class="content">
+			<%= simple_form_for [:mc, :locker, @locker] do |f| %>
+				<%= f.input :location, collection: Locker.locations.symbolize_keys.keys, include_blank: false %>
+				<%= f.input :start_number %>
+				<%= f.input :end_number %>
+				<%= f.input :status, collection: Locker.statuses.symbolize_keys.keys, include_blank: false %>
+				<%= f.button :submit %>
+			<% end %>
+		</div>
+	</li>
+</ul>

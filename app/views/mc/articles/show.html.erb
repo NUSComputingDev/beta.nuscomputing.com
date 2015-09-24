@@ -1,0 +1,8 @@
+<h1><%= @article.title %></h1>
+<div class="body">
+	<%= raw @article.content %>
+</div>
+
+<%= link_to "Back", mc_articles_path %>
+<%= link_to "Edit", edit_mc_article_path %>
+<%= link_to "Delete", mc_article_path, method: :delete, data: { confirm: "Are you sure?" } %>

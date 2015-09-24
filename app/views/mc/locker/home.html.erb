@@ -1,0 +1,17 @@
+<h1 class="text-center">Locker Management</h1>
+<%= render 'navigations' %>
+<hr>
+<div class="info">
+	<ul class="no-bullet">
+		<li>Currently Active Round: <%= @current_round ? link_to(@current_round.name, mc_locker_locker_round_path(@current_round)) : "None" %></li>
+		<li>Number of Ballots Received: <%= @current_round ? @current_round.ballots.count : "N/A" %></li>
+	</ul>
+	<hr>
+	<ul class="no-bullet">
+		<li>Last Round: <%= @last_round ? link_to(@last_round.name, mc_locker_locker_round_path(@last_round)) : "None" %></li>
+		<li>Number of Ballots Received: <%= @last_round ? @last_round.ballots.count : "N/A" %></li>
+		<li>Number of Lockers Allocated: <%= @last_round ? @last_round.allocations.count : "N/A" %></li>
+	</ul>
+</div>
+
+

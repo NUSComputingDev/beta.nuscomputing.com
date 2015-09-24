@@ -1,0 +1,19 @@
+<h1>Locker Ballot</h1>
+<div class="content">
+	<div class="user-details">
+		<ul class="no-bullet">
+			<li>Matric Number: <%= @ballot.user.uid %></li>
+			<li>Email: <%= @ballot.user.email %></li>
+			<li>Faculty: <%= @ballot.user.faculty %></li>
+		</ul>
+	</div>
+
+	<div class="ballot-details">
+		<ul class="no-bullet">
+			<li>Location Preferred: <%= @ballot.location %></li>
+			<li>Created At: <%= local_time @ballot.created_at %></li>
+			<li>Last Updated: <%= local_time @ballot.updated_at %></li>
+		</ul>
+	</div>
+</div>
+<%= link_to "Delete Locker Ballot", [:mc, :locker, @ballot], class: "button alert radius", method: :delete, data: { confirm: "Are you sure?" } %>

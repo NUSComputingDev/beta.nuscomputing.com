@@ -1,0 +1,20 @@
+<h1 class="text-center">Lockers</h1>
+<%= render 'mc/locker/navigations' %>
+<hr>
+<%= link_to "New Locker", new_mc_locker_locker_path, class: "button radius success" %>
+<br>
+
+<ul class="accordion" data-accordion>
+	<% @lockers_by_location.each do |location, lockers| %>
+		<li class="accordion-navigation">
+			<a href='<%= "#location-#{location}" %>'>Location <%= location %></a>
+			<div id='<%= "location-#{location}" %>' class="content">
+				<ul class="small-block-grid-2 medium-block-grid-4 large-block-grid-6">
+					<% lockers.each do |locker| %>
+						<li><%= link_to locker.number, mc_locker_locker_path(locker) %></li>
+					<% end %>
+				</ul>
+			</div>
+		</li>
+	<% end %>
+</ul>

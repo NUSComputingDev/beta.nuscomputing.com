@@ -1,0 +1,19 @@
+<h1>Locker Allocation</h1>
+<div class="content">
+	<div class="user-details">
+		<ul class="no-bullet">
+			<li>Matric Number: <%= @allocation.user.uid %></li>
+			<li>Email: <%= @allocation.user.email %></li>
+			<li>Faculty: <%= @allocation.user.faculty %></li>
+		</ul>
+	</div>
+
+	<div class="allocation-details">
+		<ul class="no-bullet">
+			<li>Locker: <%= link_to "#{@allocation.locker.location} - #{@allocation.locker.number}", mc_locker_locker_path(@allocation.locker) %></li>
+			<li>Created At: <%= local_time @allocation.created_at %></li>
+			<li>Last Updated: <%= local_time @allocation.updated_at %></li>
+		</ul>
+	</div>
+</div>
+<%= link_to "Delete Locker Allocation", [:mc, :locker, @allocation], class: "button alert radius", method: :delete, data: { confirm: "Are you sure?" } %>

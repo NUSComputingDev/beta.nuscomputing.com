@@ -1,0 +1,22 @@
+<nav class="tab-bar">
+	<section class="left-small">
+		<a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+	</section>
+	<section class="middle tab-bar-section">
+		<h1 class="title">NUSComputing</h1>
+	</section>
+	<section class="right tab-bar-section">
+		<% if user_signed_in? %>
+			<%= link_to "Profile", profile_path %>
+			|
+			<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+		<% else %>
+			<%= link_to "Sign in with IVLE", '/auth/ivle' %>
+		<% end %>
+
+		|
+		<%= member_signed_in? ? link_to("MC Member", mc_root_path) : link_to("MC Member", '/auth/google_oauth2') %>
+		
+	</section>
+</nav>
+
