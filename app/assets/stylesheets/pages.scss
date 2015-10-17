@@ -3,22 +3,61 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .content {
-	.title {
-		color: #149;
-		font-style: italic;
-	}
+    .title {
+        color: #149;
+        font-style: italic;
+    }
 
-	.name {
-		color: #914;
-		font-weight: bold;
-	}
+    .name {
+        color: #914;
+        font-weight: bold;
+    }
 
-	.cell-name h2{
-		color: #800;
-		font-weight: bold;
-	}
+    .cell-name {
+        color: #800;
+        font-weight: bold;
+    }
 
-	.major h4 {
-		color: #7A6666;
-	}
+    .major h4 {
+        color: #7A6666;
+    }
+}
+
+.mc-structure {
+    h1 {
+        text-align: center;
+        color: #149;
+        font-weight: bold;
+    }
+
+    .wing-panel {
+        h3 {
+            text-align: center;
+            color: #800;
+            font-weight: bold;
+        }
+
+        .member-panel {
+            margin: 1.25rem;
+
+            .position h3 {
+                text-align: left;
+                color: #149;
+                font-weight: bold;
+            }
+
+            .name {
+                font-size: larger;
+                padding-top: 0.75rem;
+                color: #914;
+                font-weight: bold;
+            }
+
+            .course-year p {
+                color: #7A6666;
+            }
+        }
+
+    }
+
 }

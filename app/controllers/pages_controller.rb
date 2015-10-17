@@ -14,6 +14,11 @@ class PagesController < ApplicationController
 
 	def mc17
 	end
+
+    def mc18
+        @winginfos = Winginfo.all
+        @memberinfos = Memberinfo.all
+    end
 	
 	def recruitment
 	end

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/election', to: "pages#election", as: "election"
   get '/profile', to: "profile#show", as: "profile"
   get '/mc17', to: "pages#mc17", as: "mc17"
+  get '/mc18', to: 'pages#mc18', as: "mc18"
   get '/recruitment', to: "pages#recruitment", as: "recruitment"
 
   get '/locker', to: "locker#home", as: "locker"
