@@ -7,6 +7,7 @@
     <title><%= content_for?(:title) ? yield(:title) : "NUSComputing" %></title>
 
     <%= stylesheet_link_tag    "application" %>
+    <%= favicon_link_tag 'favicon.ico' %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
