@@ -37,3 +37,6 @@ bower.json
 
 # Ignore .idea
 .idea/
+
+# Ignore the public assets folders
+/public/assets
