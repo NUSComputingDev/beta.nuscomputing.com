@@ -23,10 +23,10 @@
 @import "foundation_calendar";
 @import "slick";
 @import "slick-theme";
-@import url(http://fonts.googleapis.com/css?family=Roboto);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     background: url(asset-path('background.jpg')) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -35,7 +35,7 @@ body {
 }
 
 .main-section {
-    margin: 0rem 1rem 0rem;
+    //margin: 0rem 1rem 0rem;
     min-height: 20rem;
 }
 
