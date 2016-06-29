@@ -1,0 +1,79 @@
+<section class="main-carousel">
+  <div class="row">
+    <div class="small-12 columns">
+      <div id="owl-home" class="owl-carousel owl-theme">
+
+        <%# images go here %>
+        <div class="item"><%= image_tag "home/highlight-0.jpg" %></div>
+        <div class="item"><%= image_tag "home/highlight-8.jpg" %></div>
+        <div class="item"><%= image_tag "home/highlight-3.jpg" %></div>
+        <div class="item"><%= image_tag "home/highlight-7.jpg" %></div>
+        <div class="item"><%= image_tag "home/highlight-10.jpg" %></div>
+        <div class="item"><%= image_tag "home/highlight-9.jpg" %></div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="row">
+  <div class="small-12 columns">
+    <hr>
+  </div>
+</div>
+
+<section class="events-section">
+
+  <div class="row">
+    <div class="medium-7 columns">
+      <h3 class="bold">We Are Computing Club</h3>
+      <p>
+        We are the official student club of NUS School of Computing. We plan events for the undergraduate student body and ensure that students' welfare is taken care of. We organise fun social activities, games, sports and camps to complement the rigourous coursework that students go through daily.
+      </p>
+      <a href="/about" class="button info radius">
+        Read More
+      </a>
+    </div>
+    <div class="medium-5 columns">
+      <%= image_tag "home/main-about-photo.jpg", class: "radius" %>
+    </div>
+  </div>
+</section>
+
+<div class="row">
+  <div class="small-12 columns">
+    <hr>
+  </div>
+</div>
+
+<section class="events-section">
+  <div class="row">
+    <div class="small-12 columns">
+      <h3 class="bold">Featured Events</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <%# loop through the upcoming (at most 3) events and create the partial for each. %>
+    <% count = 0 %>
+    <% @events.each do |event| %>
+        <% if event.featured && count < 3 %>
+            <%= render partial: "event", locals: {event: event} %>
+            <% count += 1 %>
+        <% end %>
+    <% end %>
+    <script>
+	    // add "end" class to the last event partial to smoothen layout
+	    $(".event-columns:last").addClass("end");
+    </script>
+  </div>
+
+  <div class="row" data-equalizer-watch>
+    <%# button to see more %>
+    <div class="small-12 columns text-center">
+      <a href="events" class="button info radius">
+        See All Events
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'rake'
 gem 'devise', '~> 3.5.1'
 gem 'foundation-rails'
 gem 'simple_form'
@@ -15,6 +16,8 @@ gem 'resque', require: "resque/server"
 gem 'resque-scheduler'
 gem 'mysql'
 
+gem 'active_link_to'
+
 # Jquery related
 gem 'jquery-ui-rails'
 gem "jquery-slick-rails"
@@ -28,7 +31,7 @@ gem 'foundation-icons-sass-rails'
 gem 'omniauth-ivle'
 gem 'omniauth-google-oauth2'
 
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.3'
 gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'

@@ -1,0 +1,35 @@
+<% if params[:link] %>
+    <a class="popup-link popup-instant" href="/templates/events/<%= params[:link] %>"></a>
+<% end %>
+
+<div class="row row_div">
+  <div class ='columns small-12'>
+    <h3 class ='bold'>Computing Club Events</h3>
+  </div>
+  <div class ='columns small-12'>
+    <p>
+      Computing Club organises events for its members to help create bonds and foster a sense of family between its members. We urge all club members to come down for our events and mingle with your fellow students!
+    </p>
+    <p>
+      Find out more about each event by clicking the links below!
+    </p>
+  </div>
+</div>
+
+<% @events.each_slice(4) do |event_row| %>
+    <div class="row" data-equalizer>
+      <% event_row.each do |event| %>
+          <div class="medium-3 columns end">
+            <a class="popup-link" href="/templates/events/<%= event.link %>">
+              <div class='panel radius event-box'>
+                <div data-equalizer-watch>
+                  <%= image_tag "events/"+event.img %>
+                </div>
+                <hr>
+                <h6 class='bold'><%= event.name %></h6>
+              </div>
+            </a>
+          </div>
+      <% end %>
+    </div>
+<% end %>

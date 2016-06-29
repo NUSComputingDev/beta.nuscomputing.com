@@ -11,17 +11,20 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery-ui
-//= require foundation
+//= require turbolinks
+//= require jquery.turbolinks
+//= require owl_carousel
+//= require magnific
 //= require_tree ../../../vendor/assets/javascripts/datetimepicker
 //= require ckeditor/init
 //= require jquery.gridster.with-extras
 //= require jquery.slick
 //= require jquery.minicolors
 //= require jquery.minicolors.simple_form
-//= require turbolinks
+//= require_self
 //= require_tree .
+//= require foundation
 
 $(function(){ $(document).foundation(); });

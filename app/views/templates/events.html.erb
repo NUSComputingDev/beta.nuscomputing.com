@@ -1,0 +1,26 @@
+<% @event = Event.find_by(link: params[:link]) %>
+
+
+<div class="row popup-box">
+
+  <div class='medium-8 columns'>
+    <div class="popup-column">
+      <h3 class="bold"><%= @event.name %></h3>
+      <p>
+        <%= simple_format @event.description %>
+      </p>
+      <p>
+        <a href="<%= @event.externalpage %>" target="_blank"><button class="radius"><i class="fa fa-external-link"></i>&nbsp;External Link</button></a>
+      </p>
+    </div>
+  </div>
+
+  <div class='medium-4 columns'>
+    <div class="popup-column">
+      <%= image_tag "events/"+@event.img %>
+    </div>
+  </div>
+
+  <div style="clear:both; line-height: 0;"></div>
+
+</div>

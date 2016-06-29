@@ -1,0 +1,21 @@
+<div class="row white">
+  <div class="medium-12 large-12 columns">
+    <h3 class="bold">Our Sponsors</h3>
+    <p>
+      We would like to thank our sponsors for supporting our events and believing in us throughout the years. We hope to continue this beneficial working relationship with our sponsors and hope to forge more relationships with organisations that may want to support us as well.
+    </p>
+    <p>
+      Please contact us at <a href="mailto:connect@nuscomputing.com">connect@nuscomputing.com</a> if you would like to be a supporter for our future events!
+    </p>
+  </div>
+</div>
+
+<div class="row white">
+	<div class="small-12 medium-12 large-12 columns">
+		<ul class="small-block-grid-2 medium-block-grid-4">
+			<% @sponsors.each do |sponsor| %>
+				<li><%= link_to image_tag("sponsors/"+sponsor.img), sponsor.link, target: "_blank" %></li>
+			<% end %>
+		</ul>
+	</div>
+</div>
