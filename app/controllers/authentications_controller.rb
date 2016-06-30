@@ -26,11 +26,11 @@ class AuthenticationsController < ApplicationController
 				redirect_to mc_root_path
 			else
 				flash[:alert] = "Cannot process your authentication request."
-				redirect_to root_path
+				redirect_to mc_login_path
 			end
 		else
 			flash[:alert] = "Cannot process your authentication request."
-			redirect_to root_path
+			redirect_to mc_login_path
 		end
 	end
 end
