@@ -1,28 +1,15 @@
-<h1 class="text-center">MC Home Page</h1>
-<ul class="tabs" data-tab>
-  <li class="tab-title active"><a href="#feedback">Feedback</a></li>
-  <li class="tab-title"><a href="#calendar">Calendar</a></li>
-  <li class="tab-title"><a href="#slack">Slack</a></li>
-  <li class="tab-title"><a href="#more">More...</a></li>
-</ul>
-<div class="tabs-content">
-  <div class="content active" id="feedback">
-		<% unless @feedbacks.empty? %>
-			<% @feedbacks.each do |feedback| %>
-				<%= render partial: 'feedback', locals: { feedback: feedback } %>
-			<% end %>
-		<% else %>
-			<h3 class="sub-header">No Feedback</h3>
-		<% end %>
+<div class="row">
+
+  <div class="large-12 columns">
+    <h3 class="bold">Console Home</h3>
+    <p>Welcome, <%= '[MC_MEMBER_NAME]' %>.</p>
+    Quick Links
+    <ul>
+      <li><%= link_to 'Locker Balloting System', mc_locker_path %></li>
+      <li><%= link_to 'Enquiries', mc_feedbacks_path %></li>
+      <li><%= link_to 'Main Website', root_url(subdomain: '') %></li>
+      <li><%= link_to 'Student Portal', root_url(subdomain: 'portal') %></li>
+    </ul>
   </div>
-  <div class="content" id="calendar">
-  	<h2>#Placeholder for Google Calendar</h2>
-  	<%= image_tag 'cal.png', class: "radius th" %>
-  </div>
-  <div class="content" id="slack">
-  	<h2>#Placeholder for Slack</h2>
-  	<%= image_tag 'slack.png', class: 'radius th' %>
-  </div>
-  <div class="content" id="more">
-  </div>
+
 </div>
