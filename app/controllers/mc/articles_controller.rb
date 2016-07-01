@@ -6,6 +6,7 @@ class Mc::ArticlesController < Mc::BaseController
 	end
 
 	def show
+		@articles = Article.all.order("created_at desc")
 	end
 
 	def new

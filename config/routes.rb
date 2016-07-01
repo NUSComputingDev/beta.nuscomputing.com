@@ -64,8 +64,12 @@ Rails.application.routes.draw do
     delete '/logout', to: 'devise/sessions#destroy', as: :destroy_user_session
   end
 
+  # CK editor for crafting blog posts
+  mount Ckeditor::Engine => '/ckeditor'
+
   # portal links
   constraints subdomain: 'portal' do
+
     get '/auth/ivle/callback', to: 'authentications#ivle'
 
     root 'portal/base#home', as: 'portal_root'
@@ -113,8 +117,6 @@ Rails.application.routes.draw do
 
   # main root
   root 'pages#home'
-
-	mount Ckeditor::Engine => '/ckeditor'
 
 	resources :feedbacks, only: [:create, :new]
 	resources :articles, only: [:index, :show]
