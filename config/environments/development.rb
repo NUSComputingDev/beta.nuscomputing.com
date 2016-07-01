@@ -10,20 +10,30 @@ Rails.application.configure do
   config.eager_load = false
 
   # Show full error reports and disable caching.
-  # config.consider_all_requests_local       = true
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  # Don't care if the mailer can't send.
- 
+  # Care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = true
+
+  # Set up SMTP transport for mailer
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      address: 'smtp.gmail.com',
+      port: 587,
+      domain: 'nuscomputing.com',
+      user_name: Rails.application.secrets.mailer_username,
+      password: Rails.application.secrets.mailer_password,
+      authentication: 'login',
+      enable_starttls_auto: true
+
+  }
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
-
-	# Adding authenticity token to remote form
-	config.action_view.embed_authenticity_token_in_remote_forms = true
 
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
@@ -41,20 +51,4 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-
-	config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-	Rails.application.routes.default_url_options = { host: 'localhost', port: 3000 }
-	# Email configuration 
-	config.action_mailer.raise_delivery_errors = false
-	config.action_mailer.perform_deliveries = true
-	config.action_mailer.delivery_method = :smtp
-	config.action_mailer.smtp_settings = {
-		address: "smtp.gmail.com",
-		port: 587,
-		authentication: "plain",
-		user_name: Rails.application.secrets.GMAIL_USERNAME,
-		password: Rails.application.secrets.GMAIL_PASSWORD,
-		enable_starttls_auto: true
-	}
-
 end

@@ -8,7 +8,7 @@ class PagesController < ApplicationController
 	end
 
 	def mcmem
-		render "about"
+		render 'about'
 	end
 
 	def about
@@ -17,7 +17,7 @@ class PagesController < ApplicationController
 	end
 
 	def event
-		render "events"
+		render 'events'
 	end
 
 	def students
@@ -36,11 +36,13 @@ class PagesController < ApplicationController
 
 	def enquiry
 		@enquiry = Enquiry.new(enquiry_params)
-		if @enquiry.save
-      # TODO implement the mailer one day
-		# 	EnquiryMailer.notify(@enquiry).deliver_now
+    # send mail before saving to database.
+    # because I think it's more likely that the mailing fails than it can't save to db
+    # also to prevent multiple entries in db.
+		if EnquiryMailer.notify(@enquiry).deliver_now
+      @enquiry.save
 		end
-		render "connect"
+		render 'connect'
 	end
 
 	private

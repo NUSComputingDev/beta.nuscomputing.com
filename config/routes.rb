@@ -15,7 +15,9 @@ Rails.application.routes.draw do
 
     authenticate :member do
       scope module: 'mc', as: 'mc' do
-        resources :articles, :enquiries
+        resources :articles
+
+        get 'enquiries', to: 'enquiries#index', as: 'enquiries'
 
         namespace :blast do
           get '/', to: "/mc/blast#home"
@@ -118,7 +120,7 @@ Rails.application.routes.draw do
   # main root
   root 'pages#home'
 
-	resources :feedbacks, only: [:create, :new]
+	#resources :feedbacks, only: [:create, :new]
 	resources :articles, only: [:index, :show]
 
 
