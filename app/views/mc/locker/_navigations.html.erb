@@ -1,4 +1,7 @@
-<%= link_to "Locker Rounds", mc_locker_locker_rounds_path, class: "button radius info" %>
-<%= link_to "Locker Ballots", mc_locker_locker_ballots_path, class: "button radius info"%>
-<%= link_to "Locker Allocations", mc_locker_locker_allocations_path, class: "button radius info" %>
-<%= link_to "Lockers", mc_locker_lockers_path, class: "button radius info" %>
+<ul class="button-group even-5 radius">
+  <li><%= link_to "General Info", mc_locker_path, class: "button" %></li>
+  <li><%= link_to "Locker Rounds", mc_locker_locker_rounds_path, class: "button" %></li>
+  <li><%= link_to "Locker Ballots", mc_locker_locker_ballots_path, class: "button"%></li>
+  <li><%= link_to "Locker Allocations", mc_locker_locker_allocations_path, class: "button"%></li>
+  <li><%= link_to "Lockers", mc_locker_lockers_path, class: "button" %></li>
+</ul>
