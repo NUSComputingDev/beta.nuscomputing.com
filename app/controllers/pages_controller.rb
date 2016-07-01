@@ -35,10 +35,11 @@ class PagesController < ApplicationController
 	end
 
 	def enquiry
-		# @enquiry = Enquiry.new(enquiry_params)
-		# if @enquiry.save
+		@enquiry = Enquiry.new(enquiry_params)
+		if @enquiry.save
+      # TODO implement the mailer one day
 		# 	EnquiryMailer.notify(@enquiry).deliver_now
-		# end
+		end
 		render "connect"
 	end
 

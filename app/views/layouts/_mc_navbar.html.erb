@@ -14,7 +14,7 @@
       <ul class="left">
         <% if member_signed_in? %>
           <%= active_link_to 'Home', mc_root_path, :wrap_tag => :li, :active => :exclusive %>
-          <%= active_link_to 'Feedback', mc_feedbacks_path, :wrap_tag => :li %>
+          <%= active_link_to 'Enquiries', mc_enquiries_path, :wrap_tag => :li %>
           <%= active_link_to 'Blog', mc_articles_path, :wrap_tag => :li %>
           <%= active_link_to 'Borrow', mc_borrow_path, :wrap_tag => :li %>
           <%= active_link_to 'Locker', mc_locker_path, :wrap_tag => :li %>

@@ -1,0 +1,16 @@
+<div class="row">
+
+  <div class="large-12 columns">
+    <h3 class="bold">Enquiries</h3>
+    <p>
+      There are <%= @enquiries.count %> enquiries in total. Click to expand the enquiries.
+    </p>
+  </div>
+
+  <div class="large-12 columns">
+    <ul class="accordion" data-accordion style="padding-bottom: 1%;">
+      <%= render @enquiries %>
+    </ul>
+  </div>
+
+</div>

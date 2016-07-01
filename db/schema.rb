@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160629184559) do
+ActiveRecord::Schema.define(version: 20160701172612) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -80,6 +80,15 @@ ActiveRecord::Schema.define(version: 20160629184559) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
+  create_table "enquiries", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "email",      limit: 255
+    t.string   "contact",    limit: 255
+    t.text     "message",    limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
   create_table "events", force: :cascade do |t|
     t.string   "name",         limit: 255
     t.string   "img",          limit: 255
@@ -88,7 +97,7 @@ ActiveRecord::Schema.define(version: 20160629184559) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.string   "externalpage", limit: 255
-    t.boolean  "featured",     limit: 1
+    t.boolean  "featured"
   end
 
   create_table "feedbacks", force: :cascade do |t|
@@ -252,7 +261,7 @@ ActiveRecord::Schema.define(version: 20160629184559) do
     t.string   "link",        limit: 255
     t.string   "img",         limit: 255
     t.text     "description", limit: 65535
-    t.boolean  "featured",    limit: 1
+    t.boolean  "featured"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end

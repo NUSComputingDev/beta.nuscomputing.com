@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
     authenticate :member do
       scope module: 'mc', as: 'mc' do
-        resources :feedbacks, :articles
+        resources :articles, :enquiries
 
         namespace :blast do
           get '/', to: "/mc/blast#home"
