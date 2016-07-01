@@ -1,4 +1,4 @@
-class ItemRequestsController < ApplicationController
+class Portal::ItemRequestsController < Portal::BaseController
 	before_action :authenticate_user!
 	def show
 		@request = ItemRequest.find(params[:id])

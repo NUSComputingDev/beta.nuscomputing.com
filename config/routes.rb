@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
 
   # mc devise
-  devise_for :members, constraints: {subdomain: 'mc'}
+  devise_for :members#, constraints: {subdomain: 'mc'}
   devise_scope :member do
-    delete 'mc/logout', to: "members/sessions#destroy", as: :destroy_member_session
+    delete 'mc/logout', to: 'members/sessions#destroy', as: :destroy_member_session
   end
 
-  # console links
+  # mc links
   constraints subdomain: 'mc' do
     get '/auth/google_oauth2/callback', to: 'authentications#google_oauth2'
 
-		root 'mc/base#home', as: 'mc_root'
-		get '/login', to: 'mc/login#login', as: 'mc_login'
+    root 'mc/base#home', as: 'mc_root'
+    get '/login', to: 'mc/base#login', as: 'mc_login'
 
     authenticate :member do
       scope module: 'mc', as: 'mc' do
@@ -48,7 +48,7 @@ Rails.application.routes.draw do
           end
         end
 
-        mount Resque::Server, at: "resque"
+        mount Resque::Server, at: 'resque'
 
         # disable wiki for now since i don't know how it works
         # get '/wiki/mc/login' => redirect("/")
@@ -58,23 +58,38 @@ Rails.application.routes.draw do
     end
   end
 
-  # student devise
+  # portal devise
   devise_for :users
   devise_scope :user do
-    delete '/logout', to: "devise/sessions#destroy", as: :destroy_user_session
+    delete '/logout', to: 'devise/sessions#destroy', as: :destroy_user_session
   end
 
   # portal links
   constraints subdomain: 'portal' do
     get '/auth/ivle/callback', to: 'authentications#ivle'
 
-    root 'profile#show', as: 'portal_root'
-    get '/profile', to: 'profile#show', as: 'profile'
-    get '/locker', to: 'locker#home', as: 'locker'
+    root 'portal/base#home', as: 'portal_root'
+    get '/login', to: 'portal/base#login', as: 'portal_login'
+
+    authenticate :user do
+      scope module: 'portal', as: 'portal' do
+        get '/profile', to: 'profile#show', as: 'profile'
+        get '/locker', to: 'locker#home', as: 'locker'
+
+        resources :locker_ballots, only: [:create, :update, :destroy]
+
+        # remove the borrow system for now, don't know how it works
+        # resources :item_types, only: [:index, :show], path: "borrow"
+        # resources :items, only: [:index, :show]
+        # resources :item_requests, only: [:create]
+      end
+    end
   end
 
   # main links
   constraints subdomain: '' do
+    root 'pages#home', as: 'main_root'
+
     get '/', to: 'pages#home', as: 'home'
     get '/about', to: 'pages#about', as: 'about'
     get '/events', to: 'pages#events', as: 'events'
@@ -94,19 +109,15 @@ Rails.application.routes.draw do
 
     # for receiving enquiry form
     post '/connect', to: 'pages#enquiry', as: 'enquiry'
-
-    # main root
-    root 'pages#home'
   end
+
+  # main root
+  root 'pages#home'
 
 	mount Ckeditor::Engine => '/ckeditor'
 
 	resources :feedbacks, only: [:create, :new]
 	resources :articles, only: [:index, :show]
-	resources :item_types, only: [:index, :show], path: "borrow"
-	resources :items, only: [:index, :show]
-	resources :item_requests, only: [:create]
-	resources :locker_ballots, only: [:create, :update, :destroy]
 
 
 end

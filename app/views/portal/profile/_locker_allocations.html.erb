@@ -1,7 +1,8 @@
+Your allocated locker:
 <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
 	<% locker_allocations.order(:status, :created_at).each do |allocation| %>
 		<li>
-			<div class="panel row">
+			<div class="panel">
 				<div><strong><%= allocation.status.capitalize %></strong></div>
 				<div>Locker: <%= allocation.locker.name  %></div>
 				<div>Year: <%= allocation.round.acad_year %></div>

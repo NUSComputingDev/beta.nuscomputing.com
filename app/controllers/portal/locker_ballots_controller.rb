@@ -1,4 +1,4 @@
-class LockerBallotsController < ApplicationController
+class Portal::LockerBallotsController < Portal::BaseController
 	before_action :authenticate_user!
 	before_action :set_ballot, only: [:update, :destroy]
 	def create

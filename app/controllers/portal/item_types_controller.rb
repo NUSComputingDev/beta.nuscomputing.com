@@ -1,4 +1,4 @@
-class ItemTypesController < ApplicationController
+class Portal::ItemTypesController < Portal::BaseController
   def index
   	@item_types = ItemType.all
   end

@@ -1,4 +1,4 @@
-class LockerController < ApplicationController
+class Portal::LockerController < Portal::BaseController
 	def home
 		current_time = DateTime.now
 		@round = LockerRound.active_at(current_time).first

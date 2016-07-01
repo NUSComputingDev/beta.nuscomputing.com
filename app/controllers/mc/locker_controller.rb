@@ -1,4 +1,5 @@
 class Mc::LockerController < Mc::BaseController
+
   def home
   	@current_round = LockerRound.active_at(DateTime.now).first
 		@last_round = LockerRound.where('end < ?', DateTime.now).order({end: :desc}).first
