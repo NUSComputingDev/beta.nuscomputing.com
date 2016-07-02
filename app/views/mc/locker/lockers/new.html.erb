@@ -1,29 +1,51 @@
-<h1>New Locker</h1>
-<p>To add new location. Please contact the Director to add it using code.</p>
-<hr>
-<ul class="accordion" data-accordion>
-	<li class="accordion-navigation">
-		<a href="#single">Single Locker</a>
-		<div id="single" class="content active">
-			<%= simple_form_for [:mc, :locker, @locker] do |f| %>
-				<%= f.input :location, collection: Locker.locations.symbolize_keys.keys, include_blank: false %>
-				<%= f.input :number %>
-				<%= f.input :status, collection: Locker.statuses.symbolize_keys.keys, include_blank: false %>
-				<%= f.button :submit %>
-			<% end %>
-		</div>
-	</li>
+<div class="row">
 
-	<li class="accordion-navigation">
-		<a href="#multiple">Multiple Lockers</a>
-		<div id="multiple" class="content">
-			<%= simple_form_for [:mc, :locker, @locker] do |f| %>
-				<%= f.input :location, collection: Locker.locations.symbolize_keys.keys, include_blank: false %>
-				<%= f.input :start_number %>
-				<%= f.input :end_number %>
-				<%= f.input :status, collection: Locker.statuses.symbolize_keys.keys, include_blank: false %>
-				<%= f.button :submit %>
-			<% end %>
-		</div>
-	</li>
-</ul>
+  <div class="columns small-12">
+    <h3 class="bold">Create Locker</h3>
+    <p>Note: To add a new location, please contact the IT Director.</p>
+    <p>Actually, this feature is not implemented yet. Too bad. Tell the IT Director if you need a new locker.</p>
+  </div>
+
+  <div class="columns small-12">
+    <ul class="accordion" data-accordion>
+      <li class="accordion-navigation">
+        <a href="#single">
+          Single Locker
+          <%= fa_icon 'chevron-down', class: 'text-muted pull-right' %>
+        </a>
+        <div id="single" class="content active">
+	        <p>
+		        Add lockers one by one.<br>
+	          If you have a large sequential set of lockers to add, use the Multiple Lockers option below.
+	        </p>
+          <%= simple_form_for [:mc, :locker, @locker] do |f| %>
+            <%= f.input :location, collection: Locker.locations.symbolize_keys.keys, include_blank: false %>
+            <%= f.input :number %>
+            <%= f.input :status, collection: Locker.statuses.symbolize_keys.keys, include_blank: false %>
+            <%= f.button :submit, 'Submit', class: 'radius success'%>
+          <% end %>
+        </div>
+      </li>
+
+      <li class="accordion-navigation">
+        <a href="#multiple">
+          Multiple Lockers
+          <%= fa_icon 'chevron-down', class: 'text-muted pull-right' %>
+        </a>
+        <div id="multiple" class="content">
+	        <p>
+		        Add a sequential chunk of lockers. Better make sure every locker in between is usable!
+	        </p>
+          <%= simple_form_for [:mc, :locker, @locker] do |f| %>
+            <%= f.input :location, collection: Locker.locations.symbolize_keys.keys, include_blank: false %>
+            <%= f.input :start_number %>
+            <%= f.input :end_number %>
+            <%= f.input :status, collection: Locker.statuses.symbolize_keys.keys, include_blank: false %>
+            <%= f.button :submit, 'Submit', class: 'radius success'%>
+          <% end %>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</div>
