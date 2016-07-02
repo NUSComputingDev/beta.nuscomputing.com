@@ -1,9 +1,39 @@
-<h1>Locker Round</h1>
-<div>
-	<h3 class="subheader">Acad Year: <%= @round.acad_year %></h3>
-	<h3 class="subheader">Label: <%= @round.label %></h3>
-	<hr>
-	<%= local_time @round.start %> to <%= local_time @round.end %>
+<div class="row">
 
-	<%= link_to "Delete", mc_locker_locker_round_path(@round), method: :delete, data: { confirm: "Are you sure?" }, class: "button alert radius" %>
+  <div class="columns small-12">
+    <h3>Balloting Round</h3>
+    <table width="100%">
+      <tr>
+        <th>Acad Year</th>
+        <td><%= @round.acad_year %></td>
+      </tr>
+      <tr>
+        <th>Round Label</th>
+        <td><%= @round.label %></td>
+      </tr>
+      <tr>
+        <th>Start Time</th>
+        <td><%= local_time @round.start %></td>
+      </tr>
+      <tr>
+        <th>End Time</th>
+        <td><%= local_time @round.end %></td>
+      </tr>
+      <tr>
+        <th>Round Type</th>
+        <td><%= @round.kind %></td>
+      </tr>
+      <tr>
+        <th>Database ID</th>
+        <td><%= @round.id %></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="large-12 columns">
+    <%= link_to 'Back', mc_locker_locker_rounds_path, class: 'button small radius info' %>
+    <%= link_to 'Edit', edit_mc_locker_locker_round_path(@round), class: 'button small radius success'  %>
+    <%= link_to 'Delete', mc_locker_locker_round_path(@round), method: :delete, data: { confirm: "Deleting #{@round.label}. Are you sure?" }, class: 'button small alert radius' %>
+  </div>
+
 </div>

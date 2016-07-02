@@ -11,9 +11,9 @@
   </div>
 
   <div class="large-12 columns">
-    <%= link_to "Back", mc_articles_path, class: 'button small radius info' %>
-    <%= link_to "Edit", edit_mc_article_path, class: 'button small radius success' %>
-    <%= link_to "Delete", mc_article_path, class: 'button small radius alert', method: :delete, data: { confirm: "Are you sure?" } %>
+    <%= link_to 'Back', mc_articles_path, class: 'button small radius info' %>
+    <%= link_to 'Edit', edit_mc_article_path, class: 'button small radius success' %>
+    <%= link_to 'Delete', mc_article_path, class: 'button small radius alert', method: :delete, data: { confirm: "Deleting \"#{@article.title}\". Are you sure?" } %>
   </div>
 
 </div>

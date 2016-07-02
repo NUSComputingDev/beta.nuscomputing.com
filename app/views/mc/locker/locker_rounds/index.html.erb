@@ -12,7 +12,7 @@
     </p>
   </div>
   <div class="columns medium-4 small-12">
-    <%= link_to new_mc_locker_locker_ballot_path, class: "button radius success expand" do %>
+    <%= link_to new_mc_locker_locker_round_path, class: 'button radius success expand' do %>
       <%= fa_icon 'plus', text: 'Create Round', right: true %>
     <% end %>
   </div>
@@ -20,7 +20,6 @@
     <table width="100%">
       <thead>
       <tr>
-        <th>ID</th>
         <th>Acad Year</th>
         <th>Label</th>
         <th>Start</th>
@@ -31,14 +30,16 @@
       <tbody>
       <% @rounds.reverse.each do |round| %>
         <tr id="round-<%= round.id %>">
-          <td><%= link_to round.id, mc_locker_locker_round_path(round) %></td>
           <td><%= round.acad_year %></td>
           <td><%= round.label %></td>
           <td><%= local_time round.start %></td>
           <td><%= local_time round.end %></td>
           <td>
-            <%= button_to 'Randomly Allocate', mc_locker_allocate_path, method: :post, params: { round: round }, class: 'button radius success expand' if DateTime.now > round.end %>
-            <%= link_to 'Delete', mc_locker_locker_round_path(round), method: :delete, remote: true, data: { confirm: 'Are you sure?'}, class: 'button radius alert expand' %>
+	          <ul class="button-group stack radius">
+            <li><%= link_to 'View', mc_locker_locker_round_path(round), class: 'button small radius info expand'  %></li>
+            <li><%= link_to 'Start Allocation', mc_locker_allocate_path, method: :post, data: {confirm: "Allocating lockers for #{round.label}. Confirm?"}, params: { round: round }, class: 'button radius small success expand' if DateTime.now > round.end %></li>
+            <li><%= link_to 'Delete', mc_locker_locker_round_path(round), method: :delete, remote: true, data: {confirm: "Deleting #{round.label}. Are you sure?"}, class: 'button radius alert small expand' %></li>
+		          </ul>
           </td>
         </tr>
       <% end %>
