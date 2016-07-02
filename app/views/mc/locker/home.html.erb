@@ -4,43 +4,60 @@
 
   <div class="columns small-12">
     <h3>System Guide</h3>
-    <ul class="square">
-      <li><strong>General Info</strong>: This panel, overview of the system and its current state.</li>
-      <li><strong>Locker Rounds</strong>: Management of balloting rounds.</li>
-      <li><strong>Locker Ballots</strong>: Management of locker ballots.</li>
-      <li><strong>Locker Allocations</strong>: Management of locker allocations.</li>
-      <li><strong>Lockers</strong>: Management of the lockers themselves.</li>
-    </ul>
+    <table width="100%">
+      <tr>
+        <th>General Info</th>
+        <td>This panel, overview of the system and its current state.</td>
+      </tr>
+      <tr>
+        <th>Locker Rounds</th>
+        <td>Management of balloting rounds.</td>
+      </tr>
+      <tr>
+        <th>Locker Ballots</th>
+        <td>Management of locker ballots.</td>
+      </tr>
+      <tr>
+        <th>Locker Allocations</th>
+        <td>Management of locker allocations.</td>
+      </tr>
+      <tr>
+        <th>Lockers</th>
+        <td>Management of the lockers themselves.</td>
+      </tr>
+    </table>
   </div>
 
-  <hr>
-
   <div class="columns medium-6">
-    <h3>Current Round</h3>
-    <p>
-      <strong>Label:</strong><br>
-      <%= @current_round ? link_to(@current_round.name, mc_locker_locker_round_path(@current_round)) : "No round active" %>
-    </p>
-    <p>
-      <strong>Number of Ballots Received:</strong><br>
-      <%= @current_round ? @current_round.ballots.count : "N/A" %>
-    </p>
+    <h3>Active Round</h3>
+    <table width="100%">
+      <tr>
+        <th>Round Label</th>
+        <td><%= @current_round ? link_to(@current_round.name, mc_locker_locker_round_path(@current_round)) : 'No active round' %></td>
+      </tr>
+      <tr>
+        <th>Ballots Received</th>
+        <td><%= @current_round ? @current_round.ballots.count : 'N/A' %></td>
+      </tr>
+    </table>
   </div>
 
   <div class="columns medium-6">
     <h3>Previous Round</h3>
-    <p>
-      <strong>Label:</strong><br>
-      <%= @last_round ? link_to(@last_round.name, mc_locker_locker_round_path(@last_round)) : "None" %>
-    </p>
-    <p>
-      <strong>Number of Ballots Received:</strong><br>
-      <%= @last_round ? @last_round.ballots.count : "N/A" %>
-    </p>
-    <p>
-      <strong>Number of Lockers Allocated:</strong><br>
-      <%= @last_round ? @last_round.allocations.count : "N/A" %>
-    </p>
+    <table width="100%">
+      <tr>
+        <th>Round Label</th>
+        <td><%= @last_round ? link_to(@last_round.name, mc_locker_locker_round_path(@last_round)) : 'None' %></td>
+      </tr>
+      <tr>
+        <th>Ballots Received</th>
+        <td><%= @last_round ? @last_round.ballots.count : 'N/A' %></td>
+      </tr>
+      <tr>
+        <th>Lockers Allocated</th>
+        <td><%= @last_round ? @last_round.allocations.count : 'N/A' %></td>
+      </tr>
+    </table>
   </div>
 
 </div>

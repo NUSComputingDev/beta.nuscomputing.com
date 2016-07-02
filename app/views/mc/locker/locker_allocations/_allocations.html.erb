@@ -1,30 +1,30 @@
-<table align="center">
-	<thead>
-		<tr>
-			<th width="200">ID</th>
-			<th width="200">User</th>
-			<th width="200">Faculty</th>
-			<th width="200">Locker</th>
-		  <th width="200">Time</th>
-			<th width="200">Action</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% if allocations %>
-			<% allocations.each do |allocation| %>
-				<tr id='<%= "allocation-#{allocation.id}" %>'>
-					<td><%= allocation.id %></td>
-					<td><%= allocation.user.uid %></td>
-					<td><%= allocation.user.faculty %></td>
-				  <td><%= local_time allocation.created_at %></td>
-					<td><%= link_to allocation.locker.name, mc_locker_locker_path(allocation.locker) %></td>
-					<td>
-						<%= link_to 'Edit', edit_mc_locker_locker_allocation_path(allocation), class: 'button radius info expand' %>
-						<%= link_to 'Delete', mc_locker_locker_allocation_path(allocation), method: :delete, data: {confirm: 'Are you sure?'}, remote: true, class: 'button radius alert' %>
-					</td>
-				</tr>
-			<% end %>
-			<%= paginate allocations %>
-		<% end %>
-	</tbody>
+<table width="100%">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>User</th>
+    <th>Faculty</th>
+    <th>Locker</th>
+    <th>Time</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% if allocations %>
+    <% allocations.each do |allocation| %>
+      <tr id='<%= "allocation-#{allocation.id}" %>'>
+        <td><%= allocation.id %></td>
+        <td><%= allocation.user.uid %></td>
+        <td><%= allocation.user.faculty %></td>
+        <td><%= link_to allocation.locker.name, mc_locker_locker_path(allocation.locker) %></td>
+        <td><%= local_time allocation.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_mc_locker_locker_allocation_path(allocation), class: 'button radius info expand' %>
+          <%= link_to 'Delete', mc_locker_locker_allocation_path(allocation), method: :delete, data: {confirm: 'Are you sure?'}, remote: true, class: 'button radius alert expand' %>
+        </td>
+      </tr>
+    <% end %>
+    <%#= paginate allocations %>
+  <% end %>
+  </tbody>
 </table>
