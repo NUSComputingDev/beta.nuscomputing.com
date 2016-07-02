@@ -1,11 +1,12 @@
 <table align="center">
 	<thead>
 		<tr>
-			<th>ID</th>
-			<th>User</th>
-			<th>Faculty</th>
-			<th>Location</th>
-			<th>Action</th>
+			<th width="200">ID</th>
+			<th width="200">User</th>
+			<th width="200">Faculty</th>
+			<th width="200">Location</th>
+		  <th width="200">Time</th>
+			<th width="200">Action</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -16,9 +17,10 @@
 					<td><%= ballot.user.uid %></td>
 					<td><%= ballot.user.faculty %></td>
 					<td><%= ballot.location %></td>
+				  <td><%= local_time ballot.created_at %></td>
 					<td>
-						<%= link_to "Edit", edit_mc_locker_locker_ballot_path(ballot), class: "button radius info" %>
-						<%= link_to "Delete", mc_locker_locker_ballot_path(ballot), method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: "button radius alert" %>
+						<%= link_to 'Edit', edit_mc_locker_locker_ballot_path(ballot), class: 'button radius info expand' %>
+						<%= link_to 'Delete', mc_locker_locker_ballot_path(ballot), method: :delete, data: {confirm: 'Are you sure?'}, remote: true, class: 'button radius alert expand' %>
 					</td>
 				</tr>
 			<% end %>

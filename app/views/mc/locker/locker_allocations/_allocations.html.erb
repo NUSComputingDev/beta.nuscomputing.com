@@ -1,11 +1,12 @@
 <table align="center">
 	<thead>
 		<tr>
-			<th>ID</th>
-			<th>User</th>
-			<th>Faculty</th>
-			<th>Locker</th>
-			<th>Action</th>
+			<th width="200">ID</th>
+			<th width="200">User</th>
+			<th width="200">Faculty</th>
+			<th width="200">Locker</th>
+		  <th width="200">Time</th>
+			<th width="200">Action</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -15,10 +16,11 @@
 					<td><%= allocation.id %></td>
 					<td><%= allocation.user.uid %></td>
 					<td><%= allocation.user.faculty %></td>
+				  <td><%= local_time allocation.created_at %></td>
 					<td><%= link_to allocation.locker.name, mc_locker_locker_path(allocation.locker) %></td>
 					<td>
-						<%= link_to "Edit", edit_mc_locker_locker_allocation_path(allocation), class: "button radius info" %>
-						<%= link_to "Delete", mc_locker_locker_allocation_path(allocation), method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: "button radius alert" %>
+						<%= link_to 'Edit', edit_mc_locker_locker_allocation_path(allocation), class: 'button radius info expand' %>
+						<%= link_to 'Delete', mc_locker_locker_allocation_path(allocation), method: :delete, data: {confirm: 'Are you sure?'}, remote: true, class: 'button radius alert' %>
 					</td>
 				</tr>
 			<% end %>

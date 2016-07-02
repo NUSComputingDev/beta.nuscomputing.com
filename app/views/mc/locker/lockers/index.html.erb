@@ -1,20 +1,40 @@
-<h1 class="text-center">Lockers</h1>
-<%= render 'mc/locker/navigations' %>
-<hr>
-<%= link_to "New Locker", new_mc_locker_locker_path, class: "button radius success" %>
-<br>
+<div class="row">
 
-<ul class="accordion" data-accordion>
-	<% @lockers_by_location.each do |location, lockers| %>
-		<li class="accordion-navigation">
-			<a href='<%= "#location-#{location}" %>'>Location <%= location %></a>
-			<div id='<%= "location-#{location}" %>' class="content">
-				<ul class="small-block-grid-2 medium-block-grid-4 large-block-grid-6">
-					<% lockers.each do |locker| %>
-						<li><%= link_to locker.number, mc_locker_locker_path(locker) %></li>
-					<% end %>
-				</ul>
-			</div>
-		</li>
-	<% end %>
-</ul>
+  <%= render 'mc/locker/navigations' %>
+
+  <hr>
+
+  <div class="columns small-12 medium-8">
+    <h3>Locker Management</h3>
+    <p>Manually add lockers. It's a tough job, that's why we're counting on you!</p>
+    <p>Click each location to see the lockers. Click individual lockers to see their allocation status.</p>
+	  <p>Soon we'll add functionality to make life easier. Patience is a virtue.</p>
+  </div>
+
+  <div class="columns small-12 medium-4">
+    <%= link_to new_mc_locker_locker_path, class: 'button radius success expand' do %>
+      <%= fa_icon 'plus', text: 'Create Locker', right: true %>
+    <% end %>
+  </div>
+
+  <div class="columns small-12">
+    <ul class="accordion" data-accordion>
+      <% @lockers_by_location.each do |location, lockers| %>
+        <li class="accordion-navigation">
+          <a href="<%= "#location-#{location}" %>">
+            <%= fa_icon 'map-marker', text: "Location #{location}", right: false %>
+            <%= fa_icon 'chevron-down', class: 'text-muted pull-right' %>
+          </a>
+          <div id='<%= "location-#{location}" %>' class="content">
+            <ul class="small-block-grid-2 medium-block-grid-4 large-block-grid-6 text-center">
+              <% lockers.each do |locker| %>
+                <li><%= link_to locker.number, mc_locker_locker_path(locker), class: "button small radius #{locker.status == 'vacant'? 'info' : 'warning'}" %></li>
+              <% end %>
+            </ul>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+</div>

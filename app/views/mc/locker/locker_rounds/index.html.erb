@@ -1,18 +1,24 @@
 <div class="row">
 
-  <div class="columns small-12">
-    <h3 class="bold">Balloting Rounds</h3>
-    <%= render 'mc/locker/warning' %>
-  </div>
+  <%= render 'mc/locker/navigations' %>
 
-  <div class="columns small-12">
-    <%= render 'mc/locker/navigations' %>
-  </div>
+  <hr>
 
-  <div class="columns small-12">
+  <div class="columns medium-8 small-12">
+    <h3>Balloting Round Management</h3>
+    <p>
+      Manage the ballot rounds here. Create a new round or remove an unused one. Allocate lockers from here as well.
+    </p>
     <p>
       Note: Randomly Allocate button will only be activated for Round that is closed.
     </p>
+  </div>
+  <div class="columns medium-4 small-12">
+    <%= link_to new_mc_locker_locker_ballot_path, class: "button radius success expand" do %>
+      <%= fa_icon 'plus', text: 'Create Round', right: true %>
+    <% end %>
+  </div>
+  <div class="columns small-12">
     <table>
       <thead>
       <tr>
@@ -25,7 +31,7 @@
       </tr>
       </thead>
       <tbody>
-      <% @rounds.each do |round| %>
+      <% @rounds.reverse.each do |round| %>
         <tr id="round-<%= round.id %>">
           <td><%= link_to round.id, mc_locker_locker_round_path(round) %></td>
           <td><%= round.acad_year %></td>
@@ -33,14 +39,13 @@
           <td><%= local_time round.start %></td>
           <td><%= local_time round.end %></td>
           <td>
-            <%= link_to "Delete", mc_locker_locker_round_path(round), method: :delete, remote: true, data: { confirm: "Are you sure?" }, class: "button radius alert" %>
-            <%= button_to "Randomly Allocate", mc_locker_allocate_path, method: :post, params: { round: round }, class: "button radius success" if DateTime.now > round.end %>
+            <%= button_to 'Randomly Allocate', mc_locker_allocate_path, method: :post, params: { round: round }, class: 'button radius success expand' if DateTime.now > round.end %>
+            <%= link_to 'Delete', mc_locker_locker_round_path(round), method: :delete, remote: true, data: { confirm: 'Are you sure?'}, class: 'button radius alert expand' %>
           </td>
         </tr>
       <% end %>
       </tbody>
     </table>
-    <%= link_to "Create New Round", new_mc_locker_locker_round_path, class: "button radius success" %>
   </div>
 
 </div>
