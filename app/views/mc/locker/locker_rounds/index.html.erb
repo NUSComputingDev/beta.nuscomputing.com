@@ -35,11 +35,12 @@
           <td><%= local_time round.start %></td>
           <td><%= local_time round.end %></td>
           <td>
-	          <ul class="button-group stack radius">
-            <li><%= link_to 'View', mc_locker_locker_round_path(round), class: 'button small radius info expand'  %></li>
-            <li><%= link_to 'Start Allocation', mc_locker_allocate_path, method: :post, data: {confirm: "Allocating lockers for #{round.label}. Confirm?"}, params: { round: round }, class: 'button radius small success expand' if DateTime.now > round.end %></li>
-            <li><%= link_to 'Delete', mc_locker_locker_round_path(round), method: :delete, remote: true, data: {confirm: "Deleting #{round.label}. Are you sure?"}, class: 'button radius alert small expand' %></li>
-		          </ul>
+            <ul class="button-group stack radius">
+              <li><%= link_to 'View', mc_locker_locker_round_path(round), class: 'button small radius info expand'  %></li>
+              <% if DateTime.now > round.end %>
+                <li><%= link_to 'Start Allocation', mc_locker_allocate_path, method: :post, data: {confirm: "Allocating lockers for #{round.label}. Confirm?"}, params: { round: round }, class: 'button radius small success expand' %></li>
+              <% end %>
+            </ul>
           </td>
         </tr>
       <% end %>
