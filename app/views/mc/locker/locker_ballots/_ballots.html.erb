@@ -1,7 +1,6 @@
 <table width="100%">
   <thead>
   <tr>
-    <th>ID</th>
     <th>User</th>
     <th>Faculty</th>
     <th>Location</th>
@@ -13,14 +12,15 @@
   <% if ballots %>
     <% ballots.each do |ballot| %>
       <tr id='<%= "ballot-#{ballot.id}" %>'>
-        <td><%= ballot.id %></td>
         <td><%= ballot.user.uid %></td>
         <td><%= ballot.user.faculty %></td>
         <td><%= ballot.location %></td>
         <td><%= local_time ballot.created_at %></td>
         <td>
-          <%= link_to 'Edit', edit_mc_locker_locker_ballot_path(ballot), class: 'button radius info expand' %>
-          <%= link_to 'Delete', mc_locker_locker_ballot_path(ballot), method: :delete, data: {confirm: 'Are you sure?'}, remote: true, class: 'button radius alert expand' %>
+          <ul class="button-group stack radius">
+            <li><%= link_to 'View', mc_locker_locker_ballot_path(ballot), class: 'button info small expand' %></li>
+            <li><%= link_to 'Edit', edit_mc_locker_locker_ballot_path(ballot), class: 'button small expand' %></li>
+          </ul>
         </td>
       </tr>
     <% end %>

@@ -17,7 +17,7 @@
   <div class="columns small-12">
     <%= simple_form_for :locker_ballot, url: mc_locker_locker_ballots_path, method: :get, remote: true do |f|  %>
       <%= f.input :round, collection: LockerRound.order(acad_year: :desc), label_method: :name, value_method: :id, include_blank: false %>
-      <%= f.button :submit, 'Retrieve Ballots', class: 'radius info button expand', name: nil %>
+      <%= f.submit 'Retrieve Ballots', class: 'button radius info expand', name: nil %>
     <% end %>
 
     <div class="ballot-data">
