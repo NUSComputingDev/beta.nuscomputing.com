@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" xmlns="http://www.w3.org/1999/html">
 
   <div class="large-12 columns">
     <h3 class="bold">Enquiries</h3>
@@ -8,9 +8,11 @@
   </div>
 
   <div class="large-12 columns">
-    <ul class="accordion" data-accordion style="padding-bottom: 1%;">
+    <p>
+    <ul class="accordion" data-accordion>
       <%= render @enquiries %>
     </ul>
+    </p>
   </div>
 
 </div>

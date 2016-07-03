@@ -1,6 +1,10 @@
+<script>
+	$('#button-allocations').addClass('info');
+</script>
+
 <div class="row">
 
-  <%= render 'mc/locker/navigations' %>
+  <%= render partial: 'mc/locker/navigations', locals: {page: 'allocations'} %>
 
   <div class="columns small-12 medium-8">
     <h3>Allocations Management</h3>

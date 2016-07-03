@@ -5,13 +5,16 @@
   </a>
   <div id="enq-panel<%= enquiry.id %>" class="content">
     <div class="row">
+
       <div class="columns small-12">
-	      <strong>Message:</strong>
+        <strong>Message:</strong>
+        <div class="panel">
           <%= simple_format enquiry.message %>
+        </div>
       </div>
       <div class="columns medium-4 small-6">
-          <strong>Email:</strong><br>
-          <%= mail_to enquiry.email %>
+        <strong>Email:</strong><br>
+        <%= mail_to enquiry.email %>
       </div>
       <div class="columns medium-4 small-6">
         <% if enquiry.contact.present? %>
@@ -20,9 +23,10 @@
         <% end %>
       </div>
       <div class="columns medium-4 small-12">
-          <strong>Posted on:</strong><br>
-          <%= enquiry.created_at %>
+        <strong>Posted on:</strong><br>
+        <%= enquiry.created_at %>
       </div>
+
     </div>
   </div>
 </li>
