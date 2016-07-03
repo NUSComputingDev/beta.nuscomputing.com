@@ -4,9 +4,11 @@
 
   <div class="columns small-12 medium-8">
     <h3>Locker Management</h3>
-    <p>Manually add lockers. It's a tough job, that's why we're counting on you!</p>
-    <p>Click each location to see the lockers. Click individual lockers to see their allocation status.</p>
-	  <p>Soon we'll add functionality to make life easier. Patience is a virtue.</p>
+    <p>Manually add lockers if needed. It's a tough job, that's why we're counting on you!</p>
+    <p>
+      Click each location to see the lockers. Blue-coloured lockers are vacant. Orange-colored lockers are occupied.
+      Click on a locker to see its details. Use the "Show All" tab below to see all lockers at once.
+    </p>
   </div>
 
   <div class="columns small-12 medium-4">
@@ -16,23 +18,62 @@
   </div>
 
   <div class="columns small-12">
+    <p>
     <ul class="accordion" data-accordion>
-      <% @lockers_by_location.each do |location, lockers| %>
+      <%# by location %>
+      <% @lockers_by_location.sort_by{|location, _| location}.each do |location, lockers| %>
         <li class="accordion-navigation">
           <a href="<%= "#location-#{location}" %>">
-            <%= fa_icon 'map-marker', text: "Location #{location}", right: false %>
+            <%= fa_icon 'map-marker', text: "Location #{location} (#{lockers.count})", right: false %>
             <%= fa_icon 'chevron-down', class: 'text-muted pull-right' %>
           </a>
           <div id='<%= "location-#{location}" %>' class="content">
             <ul class="small-block-grid-2 medium-block-grid-4 large-block-grid-6 text-center">
-              <% lockers.each do |locker| %>
-                <li><%= link_to locker.number, mc_locker_locker_path(locker), class: "button small radius #{locker.status == 'vacant'? 'info' : 'warning'}" %></li>
+              <% lockers.sort_by{|locker| locker.number.to_i}.each do |locker| %>
+                <li><%= link_to locker.number, mc_locker_locker_path(locker), class: "button expand radius #{
+                                             locker.status.eql?('vacant') ?
+		                                             'info' :
+		                                             locker.status.eql?('occupied') ?
+				                                             'warning' :
+				                                             locker.status.eql?('faulty') ?
+						                                             'alert' :
+						                                             locker.status.eql?('closed') ?
+								                                             'secondary' :
+								                                             'info'
+                                             }" %></li>
               <% end %>
             </ul>
           </div>
         </li>
+		    <br>
       <% end %>
+	    <br>
+      <%# show all %>
+      <li class="accordion-navigation">
+        <a href="#show-all">
+          <%= fa_icon 'eye', text: 'Show All', right: false %>
+          <%= fa_icon 'chevron-down', class: 'text-muted pull-right' %>
+        </a>
+        <div id="show-all" class="content">
+          <ul class="small-block-grid-2 medium-block-grid-4 large-block-grid-6 text-center">
+            <% @lockers.sort_by{|locker| locker.number.to_i}.each do |locker| %>
+              <li><%= link_to "#{locker.location} - #{locker.number}", mc_locker_locker_path(locker), class: "button expand radius #{
+                                           locker.status.eql?('vacant') ?
+		                                           'info' :
+		                                           locker.status.eql?('occupied') ?
+				                                           'warning' :
+				                                           locker.status.eql?('faulty') ?
+						                                           'alert' :
+						                                           locker.status.eql?('closed') ?
+								                                           'secondary' :
+								                                           'info'
+                                           }" %></li>
+            <% end %>
+          </ul>
+        </div>
+      </li>
     </ul>
+    </p>
   </div>
 
 </div>

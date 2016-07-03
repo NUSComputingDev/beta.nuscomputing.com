@@ -29,7 +29,7 @@ class Mc::Locker::LockerAllocationsController < Mc::BaseController
 			if @allocation.save
 				# Update status of the locker
 				@allocation.locker.update status: :occupied
-				format.html { redirect_to mc_locker_locker_allocations_path, notice: "New allocation added" }
+				format.html { redirect_to mc_locker_locker_allocations_path, notice: 'New allocation added' }
 				format.json { render json: @allocation, status: :created, location: @allocation }
 				format.js {}
 			else
@@ -48,7 +48,7 @@ class Mc::Locker::LockerAllocationsController < Mc::BaseController
 		if @allocation.update(allocation_params)
 			if previous_allocation_of_new_locker
 				previous_allocation_of_new_locker.update locker_id: old_locker.id
-				flash[:notice] = "Swapp locker with #{previous_allocation_of_new_locker.user.uid}"
+				flash[:notice] = "Swap locker with #{previous_allocation_of_new_locker.user.uid}"
 			else
 				old_locker.update status: :vacant
 			end

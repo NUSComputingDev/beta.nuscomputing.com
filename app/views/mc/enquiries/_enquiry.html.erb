@@ -9,7 +9,7 @@
       <div class="columns small-12">
         <strong>Message:</strong>
         <div class="panel">
-          <%= simple_format enquiry.message %>
+          <%= simple_format html_escape_once enquiry.message %>
         </div>
       </div>
       <div class="columns medium-4 small-6">
@@ -30,3 +30,4 @@
     </div>
   </div>
 </li>
+<br>

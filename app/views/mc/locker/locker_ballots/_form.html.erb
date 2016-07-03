@@ -2,5 +2,6 @@
 	<%= f.association :user, collection: User.all.order(:uid), label_method: :uid, value_method: :id, include_blank: false %>
 	<%= f.association :round, label_method: :name, value_method: :id, include_blank: false %>
 	<%= f.input :location, collection: Locker.locations.symbolize_keys.keys, include_blank: false %>
-	<%= f.button :submit %>
+  <%= f.button :submit, 'Submit', class: 'radius success' %>
+  <%= link_to 'Cancel', :back, class: 'radius button alert' %>
 <% end %>

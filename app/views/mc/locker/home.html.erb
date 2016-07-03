@@ -11,7 +11,7 @@
       </tr>
       <tr>
         <th>Locker Rounds</th>
-        <td>Management of balloting rounds.</td>
+        <td>Management of balloting rounds and the Resque server.</td>
       </tr>
       <tr>
         <th>Locker Ballots</th>
@@ -23,7 +23,7 @@
       </tr>
       <tr>
         <th>Lockers</th>
-        <td>Management of the lockers themselves.</td>
+        <td>Management of lockers.</td>
       </tr>
     </table>
   </div>
@@ -39,6 +39,10 @@
         <th>Ballots Received</th>
         <td><%= @current_round ? @current_round.ballots.count : 'N/A' %></td>
       </tr>
+      <tr>
+        <th>Ending At</th>
+        <td><%= @current_round ? local_time(@current_round.end) : 'N/A' %></td>
+      </tr>
     </table>
   </div>
 
@@ -48,6 +52,10 @@
       <tr>
         <th>Round Label</th>
         <td><%= @last_round ? link_to(@last_round.name, mc_locker_locker_round_path(@last_round)) : 'None' %></td>
+      </tr>
+      <tr>
+        <th>Ended At</th>
+        <td><%= @last_round ? local_time(@last_round.end) : 'N/A' %></td>
       </tr>
       <tr>
         <th>Ballots Received</th>

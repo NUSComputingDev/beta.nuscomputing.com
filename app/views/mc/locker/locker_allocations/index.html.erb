@@ -21,7 +21,7 @@
   <div class="columns small-12">
     <%= simple_form_for :locker_allocation, url: mc_locker_locker_allocations_path, method: :get, remote: true do |f|  %>
       <%= f.input :year, collection: LockerRound.group(:acad_year), label_method: :acad_year, value_method: :acad_year, include_blank: false %>
-      <%= f.button :submit, 'Retrieve', class: 'radius info button expand', name: nil %>
+      <%= f.button :submit, 'Retrieve Allocations', class: 'radius info button expand', name: nil %>
     <% end %>
 
     <div class="allocation-data">

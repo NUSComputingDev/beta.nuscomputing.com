@@ -50,7 +50,7 @@ Rails.application.routes.draw do
           end
         end
 
-        mount Resque::Server, at: 'resque'
+        mount Resque::Server, at: 'resque', as: 'resque'
 
         # disable wiki for now since i don't know how it works
         # get '/wiki/mc/login' => redirect("/")

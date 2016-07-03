@@ -1,19 +1,66 @@
-<h1>Locker Allocation</h1>
-<div class="content">
-	<div class="user-details">
-		<ul class="no-bullet">
-			<li>Matric Number: <%= @allocation.user.uid %></li>
-			<li>Email: <%= @allocation.user.email %></li>
-			<li>Faculty: <%= @allocation.user.faculty %></li>
-		</ul>
-	</div>
+<div class="row">
 
-	<div class="allocation-details">
-		<ul class="no-bullet">
-			<li>Locker: <%= link_to "#{@allocation.locker.location} - #{@allocation.locker.number}", mc_locker_locker_path(@allocation.locker) %></li>
-			<li>Created At: <%= local_time @allocation.created_at %></li>
-			<li>Last Updated: <%= local_time @allocation.updated_at %></li>
-		</ul>
-	</div>
+  <div class="columns small-12">
+    <h3>Locker Allocation</h3>
+    <table width="100%">
+      <tr>
+        <th>Owner</th>
+        <td><%= @allocation.user.uid %></td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td>
+          <%= @allocation.user.email %>
+        </td>
+      </tr>
+      <tr>
+        <th>Faculty</th>
+        <td><%= @allocation.user.faculty %></td>
+      </tr>
+      <tr>
+        <th>Locker Allocated</th>
+        <td>
+          <%= link_to "#{@allocation.locker.location} - #{@allocation.locker.number}", mc_locker_locker_path(@allocation.locker) %>
+        </td>
+      </tr>
+      <tr>
+        <th>Allocated For</th>
+        <td><%= "#{@allocation.round.acad_year}, #{@allocation.round.label}" %></td>
+      </tr>
+      <tr>
+        <th>Status</th>
+        <td><%= @allocation.status %></td>
+      </tr>
+    </table>
+    <table width="100%">
+      <tr>
+        <th>Allocation ID</th>
+        <td><%= @allocation.id %></td>
+      </tr>
+      <tr>
+        <th>Created At</th>
+        <td><%= local_time @allocation.created_at %></td>
+      </tr>
+      <tr>
+        <th>Last Updated</th>
+        <td><%= local_time @allocation.updated_at %></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="large-12 columns">
+    <ul class="button-group radius">
+      <li><%= link_to 'Back', mc_locker_locker_allocations_path, class: 'button small radius info' %></li>
+      <li><%= link_to 'Edit', edit_mc_locker_locker_allocation_path(@allocation), class: 'button small radius success' %></li>
+      <li>
+        <%= link_to 'Delete',
+                    mc_locker_locker_allocation_path(@allocation),
+                    method: :delete,
+                    data: { confirm: "Deleting allocation of user #{@allocation.user.uid} at locker #{@allocation.locker.number}. Are you sure?" },
+                    class: 'button small alert radius'
+        %>
+      </li>
+    </ul>
+  </div>
+
 </div>
-<%= link_to "Delete Locker Allocation", [:mc, :locker, @allocation], class: "button alert radius", method: :delete, data: { confirm: "Are you sure?" } %>

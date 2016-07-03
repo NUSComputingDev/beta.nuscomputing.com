@@ -23,9 +23,19 @@
         <th>Round Type</th>
         <td><%= @round.kind %></td>
       </tr>
+    </table>
+    <table width="100%">
       <tr>
-        <th>Database ID</th>
+        <th>Round ID</th>
         <td><%= @round.id %></td>
+      </tr>
+      <tr>
+        <th>Created At</th>
+        <td><%= local_time @round.created_at %></td>
+      </tr>
+      <tr>
+        <th>Last Updated</th>
+        <td><%= local_time @round.updated_at %></td>
       </tr>
     </table>
   </div>
@@ -34,7 +44,14 @@
     <ul class="button-group radius">
       <li><%= link_to 'Back', mc_locker_locker_rounds_path, class: 'button small radius info' %></li>
       <li><%= link_to 'Edit', edit_mc_locker_locker_round_path(@round), class: 'button small radius success'  %></li>
-      <li><%= link_to 'Delete', mc_locker_locker_round_path(@round), method: :delete, data: {confirm: "Deleting #{@round.label}. Are you sure?"}, class: 'button small alert radius' %></li>
+      <li>
+        <%= link_to 'Delete',
+                    mc_locker_locker_round_path(@round),
+                    method: :delete,
+                    data: { confirm: "Deleting #{@round.label}. Are you sure?" },
+                    class: 'button small alert radius'
+        %>
+      </li>
     </ul>
   </div>
 

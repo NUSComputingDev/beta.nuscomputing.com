@@ -1,11 +1,10 @@
 <table width="100%">
   <thead>
   <tr>
-    <th>ID</th>
     <th>User</th>
     <th>Faculty</th>
     <th>Locker</th>
-    <th>Time</th>
+    <th>Last Updated</th>
     <th>Action</th>
   </tr>
   </thead>
@@ -13,14 +12,15 @@
   <% if allocations %>
     <% allocations.each do |allocation| %>
       <tr id='<%= "allocation-#{allocation.id}" %>'>
-        <td><%= allocation.id %></td>
         <td><%= allocation.user.uid %></td>
         <td><%= allocation.user.faculty %></td>
         <td><%= link_to allocation.locker.name, mc_locker_locker_path(allocation.locker) %></td>
-        <td><%= local_time allocation.created_at %></td>
+        <td><%= local_time allocation.updated_at %></td>
         <td>
-          <%= link_to 'Edit', edit_mc_locker_locker_allocation_path(allocation), class: 'button radius info expand' %>
-          <%= link_to 'Delete', mc_locker_locker_allocation_path(allocation), method: :delete, data: {confirm: 'Are you sure?'}, remote: true, class: 'button radius alert expand' %>
+          <ul class="button-group stack radius">
+            <li><%= link_to 'View', mc_locker_locker_allocation_path(allocation), class: 'button info small expand' %></li>
+            <li><%= link_to 'Edit', edit_mc_locker_locker_allocation_path(allocation), class: 'button small expand' %></li>
+          </ul>
         </td>
       </tr>
     <% end %>
