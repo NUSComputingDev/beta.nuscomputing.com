@@ -6,14 +6,23 @@
 
   <div class="large-12 columns">
     <div class="panel">
-	    <%= render 'mc/articles/article' %>
+      <%= render 'mc/articles/article' %>
     </div>
   </div>
 
   <div class="large-12 columns">
-    <%= link_to 'Back', mc_articles_path, class: 'button small radius info' %>
-    <%= link_to 'Edit', edit_mc_article_path, class: 'button small radius success' %>
-    <%= link_to 'Delete', mc_article_path, class: 'button small radius alert', method: :delete, data: { confirm: "Deleting \"#{@article.title}\". Are you sure?" } %>
+    <ul class="button-group radius">
+      <li><%= link_to 'Back', mc_articles_path, class: 'button small info' %></li>
+      <li><%= link_to 'Edit', edit_mc_article_path, class: 'button small success' %></li>
+      <li>
+        <%= link_to 'Delete',
+                    mc_article_path,
+                    class: 'button small alert',
+                    method: :delete,
+                    data: { confirm: "Deleting \"#{@article.title}\". Are you sure?" }
+        %>
+      </li>
+    </ul>
   </div>
 
 </div>
