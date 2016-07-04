@@ -5,14 +5,14 @@
 	<hr>
 	<% if user_signed_in? %>
 			<% unless locker_allocated?(current_user) %>
-				<%= simple_form_for @ballot do |f| %>
+				<%= simple_form_for [:portal, :locker, @ballot] do |f| %>
 					<%= f.association :round, as: :hidden, input_html: { value: @round.id } %>
-					<%= f.input :location, collection: Locker.locations.keys.reject { |n| n == "H" }, label_method: lambda {|l| LockerBallot.stat_by_location(@round, l)},
-						include_blank: false, label: "Location (Ballots / Lockers Available)" %>
+					<%= f.input :location, collection: Locker.locations.keys.reject { |n| n == 'H' }, label_method: lambda {|l| LockerBallot.stat_by_location(@round, l)},
+						include_blank: false, label: 'Location (Ballots / Lockers Available)' %>
 					<%= f.button :submit %>
 				<% end %>
 				<% if @ballot.persisted? %>
-					<%= button_to "Cancel Ballot", @ballot, method: :delete, action: :destroy, data: { confirm: "Are you sure?" }, class: "button radius alert"  %>
+					<%= link_to 'Cancel Ballot', portal_locker_locker_ballot_path(@ballot), method: :delete, action: :destroy, data: { confirm: 'Are you sure?'}, class: 'button radius alert' %>
 				<% end %>
 			<% else %>
 				<p>
@@ -23,7 +23,7 @@
 				</p>
 			<% end %>
 	<% else %>
-		<p>Please <%= link_to "Sign in", '/auth/ivle' %> with your IVLE before proceeding</p>
+		<p>Please <%= link_to 'Sign in', '/auth/ivle' %> with your IVLE before proceeding</p>
 	<% end %>
 <% else %>
 	<p>There is no Balloting Round at the moment. Please check the schedule in <strong>Announcements</strong></p>

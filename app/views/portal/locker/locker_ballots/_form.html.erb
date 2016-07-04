@@ -1,0 +1,9 @@
+<%= simple_form_for [:portal, :locker, @ballot] do |f| %>
+  <%= f.association :round, as: :hidden, input_html: { value: @round.id } %>
+  <%= f.input :location, collection: Locker.locations.keys.reject { |n| n == 'H' }, label_method: lambda {|l| LockerBallot.stat_by_location(@round, l)},
+              include_blank: false, label: 'Location (Ballots / Lockers Available)' %>
+  <%= f.button :submit, 'Submit', class: 'radius success' %>
+  <% if @ballot.persisted? %>
+    <%= link_to 'Delete', portal_locker_locker_ballot_path(@ballot), method: :delete, action: :destroy, data: {confirm: "Deleting ballot for #{@round.label}. Are you sure?"}, class: 'button radius alert' %>
+  <% end %>
+<% end %>

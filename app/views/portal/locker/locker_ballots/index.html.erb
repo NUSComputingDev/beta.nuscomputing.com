@@ -1,0 +1,52 @@
+<div class="row">
+
+  <div class="columns small-12">
+    <h3 class="bold">Locker Balloting</h3>
+  </div>
+
+  <% if locker_allocated?(current_user) %>
+    <div class="columns small-12">
+      <p>
+        You have already been allocated a locker for this year.
+      </p>
+      <p>
+        Your locker number is: <strong><%= current_user.current_locker.name if current_user.current_locker %></strong>
+      </p>
+      <p>You can check your locker allocations in <%= link_to "Profile", portal_profile_path %></p>
+    </div>
+
+  <% elsif @round %>
+    <% if @ballot.persisted? %>
+      <div class="columns small-12 medium-8">
+        <p>You have made a ballot for Location <%= @ballot.location %></p>
+        <p>
+          You can edit or cancel your ballot any time you like while the round is open.
+        </p>
+      </div>
+
+      <div class="columns small-12 medium-4">
+        <h5 class="bold">Update Ballot</h5>
+        <%= render 'form' %>
+      </div>
+    <% else %>
+      <div class="columns small-12 medium-8">
+        <p>If you are a Computing Student, you are automatically eligible to ballot for a locker. Please submit one while the balloting round is still open.</p>
+        <p>
+          You can edit or cancel your ballot any time you like while the round is open.
+        </p>
+      </div>
+
+      <div class="columns small-12 medium-4">
+        <h5 class="bold">Submit Ballot</h5>
+        <%= render 'form' %>
+      </div>
+
+    <% end %>
+  <% else %>
+    <div class="columns small-12">
+      <p>There is no Balloting Round at the moment. Please check the schedule in <strong>Announcements</strong></p>
+    </div>
+
+  <% end %>
+
+</div>

@@ -1,8 +1,10 @@
-<h3>Balloting Schedule</h3>
-<p>For the <strong>Academic Year 2015/2016</strong>, the system will be open for balloting during these rounds.</p>
-<ul>
-	<li>Round 1: 17th August - 19th August 2015</li>
-	<li>Round 2: 20th August - 22nd August 2015</li>
-</ul>
-<br>
-<!-- <div class="text-center"><%= image_tag "locker/takenote.jpg", class: "th radius" %></div> -->
+<% if @round %>
+  <div data-alert class="panel alert-box radius">
+    <a href="#" class="close">&times;</a>
+    <%= fa_icon 'check-square-o 2x', class: 'round-open-text' %>
+    <strong class="round-open-text">Ballot Round Open</strong>
+    <p>
+      Balloting for <strong><%= "#{@round.acad_year} #{@round.label}" %></strong> has opened. Don't miss it!
+    </p>
+  </div>
+<% end %>

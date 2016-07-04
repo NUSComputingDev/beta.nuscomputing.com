@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   # mc devise
-  devise_for :members#, constraints: {subdomain: 'mc'}
+  devise_for :members
   devise_scope :member do
     delete 'mc/logout', to: 'members/sessions#destroy', as: :destroy_member_session
   end
@@ -80,9 +80,12 @@ Rails.application.routes.draw do
     authenticate :user do
       scope module: 'portal', as: 'portal' do
         get '/profile', to: 'profile#show', as: 'profile'
-        get '/locker', to: 'locker#home', as: 'locker'
+        #get '/locker', to: 'locker#home', as: 'locker'
 
-        resources :locker_ballots, only: [:create, :update, :destroy]
+        namespace :locker do
+          get '/', to: '/portal/locker#home'
+          resources :locker_ballots, only: [:index, :create, :update, :destroy]
+        end
 
         # remove the borrow system for now, don't know how it works
         # resources :item_types, only: [:index, :show], path: "borrow"
@@ -121,7 +124,7 @@ Rails.application.routes.draw do
   root 'pages#home'
 
 	#resources :feedbacks, only: [:create, :new]
-	resources :articles, only: [:index, :show]
+	#resources :articles, only: [:index, :show]
 
 
 end
