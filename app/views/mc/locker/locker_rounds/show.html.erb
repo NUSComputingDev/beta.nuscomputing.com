@@ -52,6 +52,16 @@
                     class: 'button small alert radius'
         %>
       </li>
+      <% if DateTime.now > @round.end %>
+        <li>
+          <%= link_to 'Start Allocation',
+                      mc_locker_allocate_path(@round, :round => @round),
+                      method: :post,
+                      data: {confirm: "Allocating lockers for #{@round.label}, #{@round}. Confirm?"},
+                      #params: { round: @round.id },
+                      class: 'button radius small success expand' %>
+        </li>
+      <% end %>
     </ul>
   </div>
 

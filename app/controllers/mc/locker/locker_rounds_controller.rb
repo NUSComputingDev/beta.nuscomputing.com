@@ -1,5 +1,5 @@
 class Mc::Locker::LockerRoundsController < Mc::BaseController
-  before_action :set_round, only: [:show, :edit, :update, :destroy]
+  before_action :set_round, only: [:show, :edit, :update, :destroy, :allocate]
 
   def show
 	end
@@ -53,7 +53,11 @@ class Mc::Locker::LockerRoundsController < Mc::BaseController
 				format.html { redirect_to :back, notice: "Cannot destroy" }
 			end
 		end
+	end
 
+	def allocate
+		AllocateLockerJob.perform_later params[:round]
+		redirect_to mc_locker_locker_rounds_path, notice: "Allocation for this round has started."
 	end
 
   private

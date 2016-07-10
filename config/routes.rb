@@ -28,7 +28,7 @@ Rails.application.routes.draw do
         namespace :locker do
           get '/', to: "/mc/locker#home"
           resources :locker_rounds, :locker_allocations, :lockers, :locker_ballots
-          post '/allocate', to: "/mc/locker#allocate", as: "allocate"
+          post '/allocate/:id/', to: "/mc/locker/locker_rounds#allocate", as: "allocate"
           post '/', to: "/mc/locker#email", as: "email"
         end
 

@@ -41,7 +41,7 @@
             <ul class="button-group stack radius">
               <li><%= link_to 'View', mc_locker_locker_round_path(round), class: 'button small radius info expand'  %></li>
               <% if DateTime.now > round.end %>
-                <li><%= link_to 'Start Allocation', mc_locker_allocate_path, method: :post, data: {confirm: "Allocating lockers for #{round.label}. Confirm?"}, params: { round: round }, class: 'button radius small success expand' %></li>
+                <!--<li><%#= link_to 'Start Allocation', mc_locker_allocate_path, method: :post, data: {confirm: "Allocating lockers for #{round.label}, #{round}. Confirm?"}, params: { round: round }, class: 'button radius small success expand' %></li>-->
               <% end %>
             </ul>
           </td>

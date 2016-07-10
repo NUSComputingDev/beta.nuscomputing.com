@@ -16,6 +16,7 @@ class Portal::Locker::LockerBallotsController < Portal::BaseController
 
 		respond_to do |format|
 			if DateTime.now <= @ballot.round.end && @ballot.save
+        mail_notify(current_user, @ballot)
 				format.html { redirect_to portal_locker_locker_ballots_path, notice: 'Ballot Application submitted!' }
 				format.json { render json: @ballot, status: :created, location: @ballot }
 			else
@@ -27,6 +28,7 @@ class Portal::Locker::LockerBallotsController < Portal::BaseController
 
 	def update
 		if @ballot.update(ballot_params)
+      mail_notify(current_user, @ballot)
 			redirect_to portal_locker_locker_ballots_path, notice: 'Ballot updated!'
 		end
 	end
@@ -43,5 +45,10 @@ class Portal::Locker::LockerBallotsController < Portal::BaseController
 
 	def set_ballot
 		@ballot = LockerBallot.find(params[:id])
-	end
+  end
+
+  def mail_notify(user, ballot)
+    BallotNotifier.submitted_ballot_to_user(user, ballot).deliver_now
+    BallotNotifier.submitted_ballot_to_bot(user, ballot).deliver_now
+  end
 end
