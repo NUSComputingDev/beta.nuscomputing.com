@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160701172612) do
+ActiveRecord::Schema.define(version: 20160710165931) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -197,8 +197,9 @@ ActiveRecord::Schema.define(version: 20160701172612) do
     t.string   "acad_year",  limit: 255
     t.string   "label",      limit: 255
     t.integer  "kind",       limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.boolean  "allocated",              default: false
   end
 
   create_table "lockers", force: :cascade do |t|

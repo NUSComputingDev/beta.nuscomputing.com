@@ -57,7 +57,7 @@ class Mc::Locker::LockerRoundsController < Mc::BaseController
 
 	def allocate
 		AllocateLockerJob.perform_later params[:round]
-		redirect_to mc_locker_locker_rounds_path, notice: "Allocation for this round has started."
+		redirect_to mc_locker_locker_round_path, notice: "Allocation for this round has started."
 	end
 
   private
