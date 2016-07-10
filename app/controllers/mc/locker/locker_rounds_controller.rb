@@ -34,7 +34,7 @@ class Mc::Locker::LockerRoundsController < Mc::BaseController
   def update
   	respond_to do |format|
 			if @round.update round_params
-  			format.html { redirect_to mc_locker_locker_rounds_path, notice: "Locker round editted" }
+  			format.html { redirect_to mc_locker_locker_round_path, notice: "Locker round editted" }
   			format.json { render json: @round, status: :created, location: @round }
   			format.js {}
 			else
