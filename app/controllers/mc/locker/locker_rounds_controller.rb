@@ -56,8 +56,11 @@ class Mc::Locker::LockerRoundsController < Mc::BaseController
 	end
 
 	def allocate
-		AllocateLockerJob.perform_later params[:round]
-		redirect_to mc_locker_locker_round_path, notice: "Allocation for this round has started."
+		unless @round.allocated
+      @round.update allocated: true
+			AllocateLockerJob.perform_later params[:round]
+			redirect_to mc_locker_locker_round_path, notice: "Allocation for this round has started."
+		end
 	end
 
   private
@@ -65,6 +68,6 @@ class Mc::Locker::LockerRoundsController < Mc::BaseController
 		@round = LockerRound.find(params[:id])
 	end
   def round_params
-		params.require(:locker_round).permit(:start, :end, :acad_year, :label, :kind)
+		params.require(:locker_round).permit(:start, :end, :acad_year, :label, :kind, :allocated)
 	end
 end

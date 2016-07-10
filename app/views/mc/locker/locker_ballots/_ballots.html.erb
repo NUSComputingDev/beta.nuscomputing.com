@@ -4,7 +4,7 @@
     <th>User</th>
     <th>Faculty</th>
     <th>Location</th>
-    <th>Created</th>
+    <th>Last Updated</th>
     <th>Action</th>
   </tr>
   </thead>
@@ -15,7 +15,7 @@
         <td><%= ballot.user.uid %></td>
         <td><%= ballot.user.faculty %></td>
         <td><%= ballot.location %></td>
-        <td><%= local_time ballot.created_at %></td>
+        <td><%= local_time ballot.updated_at %></td>
         <td>
           <ul class="button-group stack radius">
             <li><%= link_to 'View', mc_locker_locker_ballot_path(ballot), class: 'button info small expand' %></li>

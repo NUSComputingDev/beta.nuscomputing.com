@@ -24,23 +24,35 @@
       <% @lockers_by_location.sort_by{|location, _| location}.each do |location, lockers| %>
         <li class="accordion-navigation">
           <a href="<%= "#location-#{location}" %>">
-            <%= fa_icon 'map-marker', text: "Location #{location} (#{lockers.count})", right: false %>
+            <%= fa_icon 'map-marker', text: "Location #{location}", right: false %>
             <%= fa_icon 'chevron-down', class: 'text-muted pull-right' %>
           </a>
           <div id='<%= "location-#{location}" %>' class="content">
+            <table width="100%">
+              <tr>
+                <th>Total</th>
+                <th><%= lockers.count %></th>
+              </tr>
+              <tr>
+                <th>Vacant</th>
+                <td><%= get_status_count lockers, 'vacant' %></td>
+              </tr>
+              <tr>
+                <th>Occupied</th>
+                <td><%= get_status_count lockers, 'occupied' %></td>
+              </tr>
+              <tr>
+                <th>Faulty</th>
+                <td><%= get_status_count lockers, 'faulty' %></td>
+              </tr>
+              <tr>
+                <th>Closed</th>
+                <td><%= get_status_count lockers, 'closed' %></td>
+              </tr>
+            </table>
             <ul class="small-block-grid-2 medium-block-grid-4 large-block-grid-6 text-center">
               <% lockers.sort_by{|locker| locker.number.to_i}.each do |locker| %>
-                <li><%= link_to locker.number, mc_locker_locker_path(locker), class: "button expand radius #{
-                                             locker.status.eql?('vacant') ?
-		                                             'info' :
-		                                             locker.status.eql?('occupied') ?
-				                                             'warning' :
-				                                             locker.status.eql?('faulty') ?
-						                                             'alert' :
-						                                             locker.status.eql?('closed') ?
-								                                             'secondary' :
-								                                             'info'
-                                             }" %></li>
+                <li><%= link_to locker.number, mc_locker_locker_path(locker), class: "button expand radius #{convert_status_to_class locker.status}" %></li>
               <% end %>
             </ul>
           </div>
@@ -48,6 +60,7 @@
 		    <br>
       <% end %>
 	    <br>
+
       <%# show all %>
       <li class="accordion-navigation">
         <a href="#show-all">
@@ -55,19 +68,31 @@
           <%= fa_icon 'chevron-down', class: 'text-muted pull-right' %>
         </a>
         <div id="show-all" class="content">
+          <table width="100%">
+            <tr>
+              <th>Total</th>
+              <th><%= @lockers.count %></th>
+            </tr>
+            <tr>
+              <th>Vacant</th>
+              <td><%= get_status_count @lockers, 'vacant' %></td>
+            </tr>
+            <tr>
+              <th>Occupied</th>
+              <td><%= get_status_count @lockers, 'occupied' %></td>
+            </tr>
+            <tr>
+              <th>Faulty</th>
+              <td><%= get_status_count @lockers, 'faulty' %></td>
+            </tr>
+            <tr>
+              <th>Closed</th>
+              <td><%= get_status_count @lockers, 'closed' %></td>
+            </tr>
+          </table>
           <ul class="small-block-grid-2 medium-block-grid-4 large-block-grid-6 text-center">
             <% @lockers.sort_by{|locker| locker.number.to_i}.each do |locker| %>
-              <li><%= link_to "#{locker.location} - #{locker.number}", mc_locker_locker_path(locker), class: "button expand radius #{
-                                           locker.status.eql?('vacant') ?
-		                                           'info' :
-		                                           locker.status.eql?('occupied') ?
-				                                           'warning' :
-				                                           locker.status.eql?('faulty') ?
-						                                           'alert' :
-						                                           locker.status.eql?('closed') ?
-								                                           'secondary' :
-								                                           'info'
-                                           }" %></li>
+              <li><%= link_to "#{locker.location} - #{locker.number}", mc_locker_locker_path(locker), class: "button expand radius #{convert_status_to_class locker.status}" %></li>
             <% end %>
           </ul>
         </div>

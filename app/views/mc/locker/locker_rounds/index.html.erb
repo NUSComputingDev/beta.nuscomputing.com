@@ -6,16 +6,17 @@
     <h3>Balloting Round Management</h3>
     <p>
       Manage the ballot rounds here. Create a new round or remove an unused one. Allocate lockers from here as well.
+	    Use the Resque Server to track allocation jobs.
     </p>
     <p>
-      Note: Randomly Allocate button will only be activated for Round that is closed.
+      Note: The Start Allocation button will only be activated for rounds that have ended and have yet to be allocated.
     </p>
   </div>
   <div class="columns medium-4 small-12">
     <%= link_to new_mc_locker_locker_round_path, class: 'button radius success expand' do %>
       <%= fa_icon 'plus', text: 'Create Round', right: true %>
     <% end %>
-    <%= link_to mc_resque_path, class: 'button radius info expand' do %>
+    <%= link_to mc_resque_path, target: "_blank", class: 'button radius info expand' do %>
       <%= fa_icon 'wrench', text: 'Resque Server', right: true %>
     <% end %>
   </div>
@@ -39,9 +40,15 @@
           <td><%= local_time round.end %></td>
           <td>
             <ul class="button-group stack radius">
-              <li><%= link_to 'View', mc_locker_locker_round_path(round), class: 'button small radius info expand'  %></li>
-              <% if DateTime.now > round.end %>
-                <!--<li><%#= link_to 'Start Allocation', mc_locker_allocate_path, method: :post, data: {confirm: "Allocating lockers for #{round.label}, #{round}. Confirm?"}, params: { round: round }, class: 'button radius small success expand' %></li>-->
+              <li><%= link_to 'View', mc_locker_locker_round_path(round), class: 'button small radius info expand' %></li>
+              <% if DateTime.now > round.end && !round.allocated %>
+                <li>
+                  <%= link_to 'Start Allocation',
+                              mc_locker_allocate_path(round, :round => round),
+                              method: :post,
+                              data: {confirm: "Allocating lockers for #{round.name}. Are you sure?"},
+                              class: 'button radius small success expand' %>
+                </li>
               <% end %>
             </ul>
           </td>
