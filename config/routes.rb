@@ -15,21 +15,24 @@ Rails.application.routes.draw do
 
     authenticate :member do
       scope module: 'mc', as: 'mc' do
-        resources :articles
+        resources :articles, path: 'blog'
 
         get 'enquiries', to: 'enquiries#index', as: 'enquiries'
+
+        namespace :locker, path: 'lockers' do
+          get '/', to: '/mc/locker#home'
+          resources :locker_rounds, path: 'rounds'
+          resources :locker_allocations, path: 'allocations'
+          resources :lockers
+          resources :locker_ballots, path: 'ballots'
+          post '/allocate/:id/', to: '/mc/locker/locker_rounds#allocate', as: 'allocate'
+          post '/', to: '/mc/locker#email', as: 'email'
+        end
 
         namespace :blast do
           get '/', to: "/mc/blast#home"
           resources :blast_requests
           resources :blast_emails
-        end
-
-        namespace :locker do
-          get '/', to: "/mc/locker#home"
-          resources :locker_rounds, :locker_allocations, :lockers, :locker_ballots
-          post '/allocate/:id/', to: "/mc/locker/locker_rounds#allocate", as: "allocate"
-          post '/', to: "/mc/locker#email", as: "email"
         end
 
         namespace :borrow do
@@ -82,9 +85,9 @@ Rails.application.routes.draw do
         get '/profile', to: 'profile#show', as: 'profile'
         #get '/locker', to: 'locker#home', as: 'locker'
 
-        namespace :locker do
+        namespace :locker, path: '/lockers' do
           get '/', to: '/portal/locker#home'
-          resources :locker_ballots, only: [:index, :create, :update, :destroy]
+          resources :locker_ballots, path: '/ballot', only: [:index, :create, :update, :destroy]
         end
 
         # remove the borrow system for now, don't know how it works
