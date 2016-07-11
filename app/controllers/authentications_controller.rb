@@ -1,5 +1,6 @@
 class AuthenticationsController < ApplicationController
 	def ivle
+		logger.info "omniauth info: #{request.env['omniauth.auth']}"
 		@user = User.from_omniauth(request.env["omniauth.auth"])
 
     if @user.persisted?
@@ -9,7 +10,7 @@ class AuthenticationsController < ApplicationController
 			redirect_to after_sign_in_path_for(@user)
 		else
 			flash[:alert] = "Cannot process your authentication request."
-			redirect_to root_path
+			redirect_to portal_login_path
 		end
 	end
 

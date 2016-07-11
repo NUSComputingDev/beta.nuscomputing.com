@@ -1,37 +1,30 @@
 <div class="row">
 
   <div class="small-12 columns">
-    <h3 class="bold">Locker Balloting System</h3>
-    <p><span class="label round info">Time now</span> <%= local_time Time.zone.now %></p>
+    <h3 class="bold">Lockers in SoC</h3>
 	  <%= render 'announcements' %>
-    <p>If you're a Computing student, you get one year free locker usage, every year. Submit a ballot when the ballot rounds are open to secure a locker.</p>
-    <p>See more info below or <%= link_to 'submit your ballot', portal_locker_locker_ballots_path %> now!</p>
+    <%= render 'about' %>
   </div>
 
   <hr>
 
   <div class="small-12 columns">
-    <h3 class="">Schedule</h3>
+    <h3 class="bold">Balloting Schedule</h3>
     <%= render 'schedule' %>
   </div>
 
   <div class="small-12 columns">
-    <h3 class="">Locker Usage</h3>
-    <%= render 'about' %>
-  </div>
-
-  <div class="small-12 columns">
-    <h3 class="">Locker Locations</h3>
+    <h3 class="bold">Locker Locations</h3>
     <%= render 'locations' %>
   </div>
 
   <div class="small-12 columns">
-    <h3 class="">More Details</h3>
+    <h3 class="bold">More Details</h3>
     <%= render 'faqs' %>
   </div>
 
   <div class="small-12 columns">
-    <h3 class="">Contact Us</h3>
+    <h3 class="bold">Contact Us</h3>
     <%= render 'contact' %>
   </div>
 

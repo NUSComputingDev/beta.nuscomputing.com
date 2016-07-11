@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
 		where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
 			# Adding extra information here from the hash returned by Omniauth:IVLE
 			user.faculty = auth.extra['profile']['Faculty']
+      user.name = auth.extra['profile']['Name']
 			user.email = auth.info['email']
 		end
 	end

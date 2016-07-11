@@ -1,7 +1,7 @@
 <div class="row">
   <div class="large-12 columns">
     <h3 class="bold">Portal Home</h3>
-	  <p>Welcome, <%= '[STUDENT_NAME]' %>.</p>
+	  <p>Welcome, <%= current_user.name %>.</p>
     Quick Links
     <ul>
       <li><%= link_to 'Locker Balloting System', portal_locker_path %></li>
