@@ -1,7 +1,7 @@
 <%= simple_form_for [:mc, @event] do |f| %>
 	<%= f.input :name, label: 'Event Name' %>
   <%= f.input :img, label: 'Image URL (e.g. http://imgur.com/iP43yT.jpg)' %>
-  <%= f.input :externalpage, label: 'External Page (e.g. Facebook post)' %>
+  <%= f.input :externalpage, label: 'External Page URL (e.g. Facebook post)' %>
   <%= f.input :featured, label: 'Featured on Home Page?', as: 'radio_buttons' %>
 	<%= f.input :description, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full'} } %>
 	<br>

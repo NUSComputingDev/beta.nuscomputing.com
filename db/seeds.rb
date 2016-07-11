@@ -9,7 +9,7 @@
 # { role: member }
 
 { 
-	acad: "acad", 
+	acad: "acad",
   ar: "alumnirelations",
   finance: "finance",
   fop: "fop",
@@ -62,8 +62,8 @@ events = Event.create(
     [
         {
             name: "FOP 2016",
-            img: "fop2016.jpg",
-            link:"fop2016",
+            img: "http://i.imgur.com/rtLLChl.jpg",
+            link:"fop-2016",
             externalpage: "http://freshmen.nuscomputing.com",
             description: "Are you an incoming freshman who wants to find out more about the school? Or do you simply want to make some friends and have fun?
 
@@ -72,7 +72,7 @@ NUS Computing Freshmen Orientation Projects (FOP) 2016 presents to you Virtutem 
         },
         {
             name: "LoveBytes",
-            img: "lovebytes.jpg",
+            img: "http://i.imgur.com/DASd3lF.jpg",
             link:"lovebytes",
             externalpage: "https://mysurvey.nus.edu.sg/EFM/se.ashx?s=54CCD14B7E4B65F8",
             description: "Orders are closing soon for LoveBytes2016! Order now if you want SoCupids to send your message for you! :3
@@ -87,9 +87,9 @@ SoC LoveBytes orders are open now at AMAZING prices! Visit http://tiny.cc/LoveBy
             featured: true
         },
         {
-            name: "FOP Recruitment",
-            img: "fop-recruitment.jpg",
-            link:"fop-recruitment",
+            name: "FOP Recruitment 2016",
+            img: "http://i.imgur.com/SGpr15e.jpg",
+            link:"fop-recruitment-2016",
             externalpage: "https://mysurvey.nus.edu.sg/EFM/se.ashx?s=54CCD14B095CC4E6",
             description: "Are you looking for an exciting activity to participate in the summer? Want to relive your Orientation experience? Wait no further! Join Freshmen Orientation Projects(FOP) as an OGL / House Head / Helper(OHH)!
 We are recruiting Photographers as well! (A workshop will be provided, so if you are interested but lack the skills, you still can sign up!)
@@ -100,9 +100,9 @@ Join our family and let's have fun together! :D",
             featured: false
         },
         {
-            name: "Welfare Night",
-            img: "welfarenight.jpg",
-            link:"welfare-night",
+            name: "Welfare Night AY15/16 S2",
+            img: "http://i.imgur.com/hwRe4Z3.jpg",
+            link:"welfare-night-ay1516-s2",
             externalpage: "https://www.facebook.com/nuscomputing/photos/904991259569092/",
             description: "Feeling the blues after a great vacation? Dread coming back to school? Stay back this Friday night from 7.00pm onwards for Welfare Night! We have consoles set up for you in our Student Lounge, Steam games such as DOTA 2, L4D2, Team Fortress 2 ready to play in Programming Lab 6, board games and carom boards free to loan, and karaoke sessions too! All these plus complementary snacks and drinks for your enjoyment! What are you waiting for? Grab your friends and have some fun before this hectic semester begins!
 
@@ -110,9 +110,9 @@ Hope to see you there!",
             featured: true
         },
         {
-            name: "Halloween Celebrations",
-            img: "halloween.jpg",
-            link:"halloween",
+            name: "Halloween Celebrations 2015",
+            img: "http://i.imgur.com/7GesAmY.jpg",
+            link:"halloween-celebrations-2015",
             externalpage: "https://www.facebook.com/nuscomputing/photos/869736583094560/",
             description: "Computing Club's Welfare Cell proudly presents... Halloween Celebration 2015: The Monster Invasion. We will be giving out free candies to SoC students on that day. Stand to win additional prizes if you take part in our Photo-booth Contest and Oculus Rift Hub.
 
@@ -122,9 +122,9 @@ See you there!",
             featured: false
         },
         {
-            name: "Welfare Pack Giveaway",
-            img: "welfarepack.png",
-            link:"welfare-pack",
+            name: "Welfare Pack Giveaway AY15/16 S1",
+            img: "http://i.imgur.com/wpSK675.png",
+            link:"welfare-pack-giveaway-ay1516-s1",
             externalpage: "https://www.facebook.com/nuscomputing/photos/875257525875799/",
             description: "Exam Welfare Pack Distribution is coming to you soon!
 
@@ -132,9 +132,9 @@ Remember to complete the survey at least ONE DAY before you come and collect the
             featured: false
         },
         {
-            name: "Christmas Party",
-            img: "christmas.jpg",
-            link:"christmas",
+            name: "Christmas Party 2015",
+            img: "http://i.imgur.com/U2vHwZP.jpg",
+            link:"christmas-party-2015",
             externalpage: "https://www.facebook.com/events/1177463648949180/",
             description: "Christmas just around the corner! The Computing Club has exciting plans to spread joy to all of NUS Computing, Students or Staff during this festive season!
 
@@ -162,9 +162,9 @@ The theme for the attire is HUMAN XMAS TREE =)",
             featured: false
         },
         {
-            name: "Sports Camp",
-            img: "sportscamp.jpg",
-            link:"sports-camp",
+            name: "Sports Camp 2015",
+            img: "http://i.imgur.com/l4CamhV.jpg",
+            link:"sports-camp-2015",
             externalpage: "https://www.facebook.com/nuscomputing/photos/876412282426990/",
             description: "Want to find somewhere to bond, chillax and play sports at the same time? SoC Sports Cell invites you to Sports Camp 16! We have fun and exciting programs such as PARKOUR, LACROSSE and NIGHT CYCLING in store for you. Most importantly, don't forget the highlight of the camp, PAINTBALL!
 

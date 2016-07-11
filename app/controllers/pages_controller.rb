@@ -17,6 +17,7 @@ class PagesController < ApplicationController
 	end
 
 	def event
+		@events = Event.all
 		render 'events'
 	end
 

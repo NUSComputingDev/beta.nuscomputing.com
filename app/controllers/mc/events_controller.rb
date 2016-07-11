@@ -7,7 +7,7 @@ class Mc::EventsController < Mc::BaseController
 	end
 
 	def show
-		@events = Event.all.order("created_at desc")
+		@events = Event.all.order('created_at desc')
 	end
 
 	def new
@@ -42,9 +42,9 @@ class Mc::EventsController < Mc::BaseController
 	def destroy
 		@event.destroy
 		redirect_to mc_events_path
-	end
+  end
 
-	private
+  private
 	def set_event
 		@event = Event.find(params[:id])
 	end
