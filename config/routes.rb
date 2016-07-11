@@ -8,17 +8,29 @@ Rails.application.routes.draw do
 
   # mc links
   constraints subdomain: 'mc' do
+
+    # authentication route
     get '/auth/google_oauth2/callback', to: 'authentications#google_oauth2'
 
+    # mc root
     root 'mc/base#home', as: 'mc_root'
+
+    # mc login
     get '/login', to: 'mc/base#login', as: 'mc_login'
 
     authenticate :member do
       scope module: 'mc', as: 'mc' do
+
+        # resque
+        mount Resque::Server, at: 'resque', as: 'resque'
+
+        # blog
         resources :articles, path: 'blog'
 
+        # enquiries
         get 'enquiries', to: 'enquiries#index', as: 'enquiries'
 
+        # lockers
         namespace :locker, path: 'lockers' do
           get '/', to: '/mc/locker#home'
           resources :locker_rounds, path: 'rounds'
@@ -29,12 +41,17 @@ Rails.application.routes.draw do
           post '/', to: '/mc/locker#email', as: 'email'
         end
 
+        # events
+        resources :events
+
+        # blast
         namespace :blast do
           get '/', to: "/mc/blast#home"
           resources :blast_requests
           resources :blast_emails
         end
 
+        # borrow system
         namespace :borrow do
           get '/', to: "/mc/borrow#home"
           get 'reload'
@@ -52,8 +69,6 @@ Rails.application.routes.draw do
             end
           end
         end
-
-        mount Resque::Server, at: 'resque', as: 'resque'
 
         # disable wiki for now since i don't know how it works
         # get '/wiki/mc/login' => redirect("/")
