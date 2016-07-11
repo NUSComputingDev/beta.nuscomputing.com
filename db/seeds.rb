@@ -7,19 +7,18 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # { role: member }
-
 { 
-	acad: "acad",
-  ar: "alumnirelations",
-  finance: "finance",
-  fop: "fop",
-  it: "infotech",
-  log: "logistics",
-  marketing: "marketing",
-  pcell: ["pcell", "president", "vp.extrel", "vp.hrd", "vp.ops", "secretariat"],
-  publicity: "pub",
-  sports: "sports",
-  welfare: "welfare"
+	acad: ['acad', 'dy.acad'],
+  ar: ['alumnirelations', 'dy.alumnirelations'],
+  finance: ['finance', 'dy.finance'],
+  fop: ['fop', 'dy.fop'],
+  it: ['infotech', 'dy.infotech'],
+  log: ['logistics', 'dy.logistics'],
+  marketing: ['marketing', 'dy.marketing'],
+  pcell: ['president', 'vp.extrel', 'vp.hrd', 'vp.ops', 'secretariat', 'dy.secretariat', 'studentrelations', 'dy.studentrelations'],
+  publicity: ['publicity', 'dy.publicity'],
+  sports: ['sports', 'dy.sports'],
+  welfare: ['welfare', 'dy.welfare']
 }.each do |role, members|
 	rol = Role.create(name: role)
 	if members.respond_to? :each
