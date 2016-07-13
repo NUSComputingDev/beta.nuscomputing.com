@@ -179,42 +179,42 @@ sponsors = Sponsor.create(
     [
         {
             name: "90s Candy Society",
-            link: "http://www.90s.com.sg",
-            img: "candy_society.png",
-            description: ""
+            website: "http://www.90s.com.sg",
+            img: "http://i.imgur.com/EV6sGLH.png",
+            description: "No description available."
         },
         {
             name: "Accenture",
-            link: "https://www.accenture.com/sg-en",
-            img: "accenture.png",
+            website: "https://www.accenture.com/sg-en",
+            img: "http://i.imgur.com/VhXYBUf.png",
             description: "Accenture is a leading global professional services company, providing a broad range of services and solutions in strategy, consulting, digital, technology and operations."
         },
         {
             name: "Aptus",
-            link: "http://www.aptus.com.sg",
-            img: "aptus.png",
-            description: ""
+            website: "http://www.aptus.com.sg",
+            img: "http://i.imgur.com/9R84G3z.png",
+            description: "No description available."
         },
         {
             name: "Atlantic Optical",
-            link: "http://www.atlanticoptical.com.sg/",
-            img: "atlantic_optical.png",
+            website: "http://www.atlanticoptical.com.sg/",
+            img: "http://i.imgur.com/AmuWXdX.png",
             description: "Atlantic Optical is a specialised and fully equipped eyecare concept store with wide selections of sunglasses, frames and contact lenses, daily disposable, cosmetic, rigid gas permeable lenses & multi focal contact lenses.
 
 	Providing complete eye examinations, including cataract detection, intra­ocular pressure measurement, retinal photography, macular degeneration and visual field screening, ophthalmoscopy, pediatric vision management and binocular vision test."
         },
         {
             name: "Ban Choon",
-            link: "http://www.banchoon.com.sg/",
-            img: "bc.png",
+            website: "http://www.banchoon.com.sg/",
+            img: "http://i.imgur.com/xsIJZsQ.png",
             description: "Ban Choon Marketing Pte Ltd is founded in 1988 by the Managing Director Mr C H Tan. Though the company was officially founded in 1988 by Mr Tan, the name \"Ban Choon\" has existed since the 1950s, when Mr Tan's grandfather ran a trading business in Singapore.
 
 	Ban Choon's core business is in the import and distribution of fresh produce – fruits and vegetables, supplying to major supermarkets, catering centres (Singapore Airlines Terminal Services, Changi International Airport Services and ship chandlers), hotels and restaurants."
         },
         {
             name: "BNP Paribas",
-            link: "http://www.bnpparibas.com.sg/",
-            img: "bnp_paribas.png",
+            website: "http://www.bnpparibas.com.sg/",
+            img: "http://i.imgur.com/UW3PGFF.png",
             description: "BNP Paribas established its presence in Singapore in 1968 and employs over 2,000 employees.
 
 	BNP Paribas Singapore is the regional hub for South East Asia and is responsible for the branches or fully owned subsidiaries in Indonesia, Malaysia, Philippines, Thailand and Vietnam.
@@ -225,26 +225,26 @@ sponsors = Sponsor.create(
         },
         {
             name: "Botak Jones",
-            link: "http://www.botakjones.com/",
-            img: "botak_jones.png",
+            website: "http://www.botakjones.com/",
+            img: "http://i.imgur.com/8SZPuhE.png",
             description: "BOTAK JONES® was born out of the idea that everyone should have access to well­made food of all types. Seeing a lack of good, well­made western food in the industrial and heartland areas, the good people at BOTAK JONES® deemed it timely to carve a market niche and take the heartlands by storm! We’ve not looked back since!"
         },
         {
             name: "Bubble Bump",
-            link: "http://www.bubblebump.sg/",
-            img: "bubble_bump.png",
-            description: ""
+            website: "http://www.bubblebump.sg/",
+            img: "http://i.imgur.com/nVbnIUA.png",
+            description: "No description available."
         },
         {
             name: "Community Health Assessment Team",
-            link: "https://www.chat.mentalhealth.sg/",
-            img: "chat.png",
+            website: "https://www.chat.mentalhealth.sg/",
+            img: "http://i.imgur.com/xl1rCIs.png",
             description: "Community Health Assessment Team (CHAT) is a national outreach and mental health check programme under the Institute of Mental Health (IMH). Our team includes doctors, youth workers, outreach workers, and mental health advocates. Since 2009, we have been helping and supporting young people with mental health concerns."
         },
         {
             name: "CrimsonLogic",
-            link: "http://www.crimsonlogic.com.sg/",
-            img: "crimson_logic.png",
+            website: "http://www.crimsonlogic.com.sg/",
+            img: "http://i.imgur.com/aHBzseC.png",
             description: "CrimsonLogic is a trusted partner working closely with governments around the world to develop innovative and sustainable eGovernment solutions to collaborate more seamlessly with their citizens and ecosystem.
 
 	Headquartered in Singapore and with over two decades of experience, we have a deep understanding of the way agencies work, interact and deliver services. TradeNet®, eJudiciary, eStamping and CertOfOrigin are some of our world’s first innovations being used every day by government agencies worldwide.
@@ -253,8 +253,8 @@ sponsors = Sponsor.create(
         },
         {
             name: "CSIT",
-            link: "http://www.csit.gov.sg/",
-            img: "csit.png",
+            website: "http://www.csit.gov.sg/",
+            img: "http://i.imgur.com/Bf1ZS0G.png",
             description: "The Centre for Strategic Infocomm Technologies (CSIT) is an agency in the Ministry of Defence (MINDEF) that focuses on R&D and solutions development in information and communications technologies to fulfil the strategic needs of Singapore.
 
 	Formed on 1 Feb 2003, CSIT has deep in­house technological expertise spanning a good spectrum of disciplines within the infocomm field to address a wide range of technological problems.
@@ -263,44 +263,44 @@ sponsors = Sponsor.create(
         },
         {
             name: "DSO",
-            link: "https://www.dso.org.sg/",
-            img: "dso.png",
-            description: ""
+            website: "https://www.dso.org.sg/",
+            img: "http://i.imgur.com/U6CfmdK.png",
+            description: "No description available."
         },
         {
             name: "Forest Adventure",
-            link: "https://forestadventure.com.sg",
-            img: "forest_adventure.png",
-            description: ""
+            website: "https://forestadventure.com.sg",
+            img: "http://i.imgur.com/Q4jebO0.png",
+            description: "No description available."
         },
         {
             name: "Glints",
-            link: "https://glints.com/",
-            img: "glints.png",
-            description: ""
+            website: "https://glints.com/",
+            img: "http://i.imgur.com/uqp17wy.png",
+            description: "No description available."
         },
         {
             name: "GoGoVan",
-            link: "https://www.gogovan.sg/",
-            img: "gogovan.png",
-            description: ""
+            website: "https://www.gogovan.sg/",
+            img: "http://i.imgur.com/5N6pS3C.png",
+            description: "No description available."
         },
         {
             name: "Goro Goro",
-            link: "https://www.facebook.com/GoroGoro.Asia/",
-            img: "gorogoro.png",
-            description: ""
+            website: "https://www.facebook.com/GoroGoro.Asia/",
+            img: "http://i.imgur.com/4fgxn2g.png",
+            description: "No description available."
         },
         {
             name: "Gumtree",
-            link: "http://www.gumtree.sg/",
-            img: "gumtree.png",
-            description: ""
+            website: "http://www.gumtree.sg/",
+            img: "http://i.imgur.com/HUtWnbu.png",
+            description: "No description available."
         },
         {
             name: "Happi",
-            link: "http://happi.sg/en",
-            img: "happi.png",
+            website: "http://happi.sg/en",
+            img: "http://i.imgur.com/oPF5Sp1.png",
             description: "Happi is a new social shopping platform that provides you with special deals, chances to win those things entirely free, and donates to a cause/ charity/ group you support - all without spending a dime. Simply by tapping on the Smiley button on each offering, you download a free discount coupon and automatically enters into a lucky draw contest.
 
 Each week, we reward selected users who have 'smiled' 10 times or more with giveaways from our app.
@@ -308,14 +308,14 @@ Each week, we reward selected users who have 'smiled' 10 times or more with give
         },
         {
             name: "Ippin",
-            link: "http://www.ippin-jpc.com/",
-            img: "ippin.png",
-            description: ""
+            website: "http://www.ippin-jpc.com/",
+            img: "http://i.imgur.com/4nflD15.png",
+            description: "No description available."
         },
         {
             name: "Je t’aime Perfumery Singapore",
-            link: "https://www.jetaime-singapore.com/",
-            img: "jetaime.png",
+            website: "https://www.jetaime-singapore.com/",
+            img: "http://i.imgur.com/xfMfXHt.png",
             description: "We established this place, so you can express yourself in another medium.
 
 	We know how expensive it can be to buy a basic set of 'olfactory material', especially if you are looking for high­quality. So we decided to gather the best available material for you, which we can share to create 'Olfactory art', 'Mixed­Media' work, Signature Fragrances and more.
@@ -324,60 +324,60 @@ Each week, we reward selected users who have 'smiled' 10 times or more with give
         },
         {
             name: "Jet Brains",
-            link: "https://www.jetbrains.com/",
-            img: "jetbrains.png",
+            website: "https://www.jetbrains.com/",
+            img: "http://i.imgur.com/AZpW503.png",
             description: "At JetBrains, code is our passion. For over 15 years we have strived to make the strongest, most effective developWe help developers work faster by automating common, repetitive tasks to enable them to stay focused on code design and the big picture. We provide tools to explore and familiarize with code bases faster. Our products make it easy for you to take care of quality during all stages of development and spend less time on maintenance tasks."
         },
         {
             name: "I’m Kim Korean BBQ",
-            link: "https://www.facebook.com/imkim.asia/?ref=stream",
-            img: "kim.png",
-            description: ""
+            website: "https://www.facebook.com/imkim.asia/?ref=stream",
+            img: "http://i.imgur.com/jdA4CV6.png",
+            description: "No description available."
         },
         {
             name: "KOKOMAMA",
-            link: "https://www.facebook.com/kokomama.marketplace",
-            img: "kokomama.png",
+            website: "https://www.facebook.com/kokomama.marketplace",
+            img: "http://i.imgur.com/LPoc7ir.png",
             description: "KOKOMAMA is ​a hip fusion cafe that sells different varieties of food and beverages ­ french bakery, chilli crab/curry/clam chowder bread bowls, rice bowls, coffee (latte etc), traditional kopi/ teh and dessert such as waffles and korean bingsu. And also affordable bread for people to take away!"
         },
         {
             name: "Laffio",
-            link: "https://www.facebook.com/laffio.sg/",
-            img: "laffio.png",
-            description: ""
+            website: "https://www.facebook.com/laffio.sg/",
+            img: "http://i.imgur.com/jtrZYoZ.png",
+            description: "No description available."
         },
         {
             name: "Manhattan Fish Market",
-            link: "http://www.manhattanfishmarket.com/",
-            img: "manhattan.png",
+            website: "http://www.manhattanfishmarket.com/",
+            img: "http://i.imgur.com/0y4c8KB.png",
             description: "At The Manhattan FISH MARKET, our guests are served with lip­smacking American­style seafood such as the famous Manhattan Fish n’ Chips, the all­time favourite Garlic Herb Mussels and the legendary Manhattan Flaming Seafood Platter.
 
 	We have come a long way with more than 50 restaurants in Asia and the Middle East, including Singapore, Malaysia, Indonesia, Thailand, Sri Lanka, Myanmar, Oman, India and Japan. We attribute our success and regional popularity to our fresh, flavourful and innovative offerings. To meet our fans' insatiable appetite for delicious seafood, we are constantly expanding and evolving with brand new restaurant interiors inspired by the famous Fulton Fish Market. Every restaurant is tastefully appointed to evoke the colourful and dynamic spirit of the iconic market!"
         },
         {
             name: "Matchaya",
-            link: "http://www.matchaya.sg/",
-            img: "matchaya.png",
-            description: ""
+            website: "http://www.matchaya.sg/",
+            img: "http://i.imgur.com/LxpL7NP.png",
+            description: "No description available."
         },
         {
             name: "MGP",
-            link: "https://mgplabel.com/",
-            img: "mgp.png",
-            description: ""
+            website: "https://mgplabel.com/",
+            img: "http://i.imgur.com/IumlkBy.png",
+            description: "No description available."
         },
         {
             name: "Milkcow",
-            link: "https://www.facebook.com/MilkCow.Sg/",
-            img: "milkcow.png",
+            website: "https://www.facebook.com/MilkCow.Sg/",
+            img: "http://i.imgur.com/f57dRZj.png",
             description: "Milkcow, Korean Organic Soft Serve Ice­cream, is here in Singapore.
 
 	Milkcow is another Korean craze that seems to be taking the nation by storm. It’s like K­pop, everything Korean is in nowadays, and that includes Korean food. Milkcow is a Koreansoft serve ice cream chain. The milk is supposed to be 100% from Italy and they only have 1 flavor – which is milk soft serve ice cream. They’re famous for topping it with 100% organic honeycomb from Australia, giving it a healthy twist."
         },
         {
             name: "Paper Innovation Pte Ltd",
-            link: "http://print-it.com.sg/",
-            img: "paper_talk.png",
+            website: "http://print-it.com.sg/",
+            img: "http://i.imgur.com/pIN7pE1.png",
             description: "With a combined skillset of over 30 years in the printing industries, Paper Innovation has expanded into the role of a quick response printer and has distinguished ourselves by offering:
 
 			­ On Time Delivery
@@ -388,22 +388,22 @@ Each week, we reward selected users who have 'smiled' 10 times or more with give
         },
         {
             name: "Playnation",
-            link: "http://playnation.com.sg/",
-            img: "playnation.png",
+            website: "http://playnation.com.sg/",
+            img: "http://i.imgur.com/JITeo5v.png",
             description: "Previously Known as The Hangout, Play Nation is founded with the vision of creating a cosy and comfortable place where youths (and the young at heart) would have a place to play, bond, and socialize over fun and engaging games. Besides having over 200 designer board and card games in stock, Play Nation also has more than 100 hand­picked console game titles for the XBox 360 and Nintendo Wii platform."
         },
         {
             name: "Pokka",
-            link: "http://www.pokka.com.sg/",
-            img: "pokka.png",
+            website: "http://www.pokka.com.sg/",
+            img: "http://i.imgur.com/n5DmuMQ.png",
             description: "Established in January 1977 by Pokka Sapporo Food & Beverage Limited (previously known as Pokka Corporation Japan), Pokka is a leading food and beverage group in Singapore and the Asia Pacific. The company manufactures and markets a wide range of beverages under the reputed brand name \"Pokka\" and also owns and operates restaurant chains, serving varied culinary delights.
 
 	Today, Pokka is an undeniable presence in the ready­to­drink beverage market with a brand name that symbolises health, vitality and freshness. The Group has had successful expansion plans executed in over 50 countries across Asia, the Middle East and Europe and is constantly looking for new opportunities."
         },
         {
             name: "300% Positive",
-            link: "http://www.300positive.com/",
-            img: "positive.png",
+            website: "http://www.300positive.com/",
+            img: "http://i.imgur.com/rYoLjcb.png",
             description: "300 Percent Positive Energy Pte Ltd is a values driven organization established to make the world a better place!
 
 	We provide exclusive workshops for individuals and organizations to instill 300% Positive Mindset/Culture/Environment: Positive Thoughts, Positive Speech, and Positive Actions!
@@ -412,40 +412,40 @@ Each week, we reward selected users who have 'smiled' 10 times or more with give
         },
         {
             name: "Singapore Pub Crawl",
-            link: "http://www.singaporepubcrawl.com.sg",
-            img: "pub_crawl.png",
-            description: ""
+            website: "http://www.singaporepubcrawl.com.sg",
+            img: "http://i.imgur.com/lc5OsuT.png",
+            description: "No description available."
         },
         {
             name: "Shopback",
-            link: "https://www.shopback.sg/",
-            img: "shopback.png",
+            website: "https://www.shopback.sg/",
+            img: "http://i.imgur.com/OOHAWIX.png",
             description: "ShopBack is a Singaporean­headed e­commerce startup that utilises the cashback reward program. It allows online shoppers to take a portion of their cash back when they buy products through the service. They also provide discount coupons and voucher codes for online shopping. It is currently affiliated with over 300 merchants from all over the world, including online retail giants Taobao, ZALORA, Lazada_Group, Rakuten and Groupon."
         },
         {
             name: "STA Travel",
-            link: "http://www.statravel.com.sg/",
-            img: "sta.png",
+            website: "http://www.statravel.com.sg/",
+            img: "http://i.imgur.com/ohFiaeE.png",
             description: "STA Travel is the largest student and young person travel company in the world. It is the preferred travel company for over 6 million people worldwide.  With 2 retail locations in Singapore and an online presence at statravel.com.sg, anyone looking to 'experience the world face to face' has access to comprehensive travel products and services including airfares, accommodations and tours, discount cards, travel insurance, volunteer projects, working holidays and more through STA Travel."
         },
         {
             name: "Triple Dry",
-            link: "http://www.triple-dry.com/",
-            img: "triple_dry.png",
+            website: "http://www.triple-dry.com/",
+            img: "http://i.imgur.com/qMBSsvJ.png",
             description: "Triple Dry contains a blend of three highly efficacious and proven anti­perspirant actives (Aluminium Sesquichlorohydrate, Aluminium Chlorohydrate, Aluminium Chlorohydrex PG) which are designed to provide effective, long lasting and responsive protection.
 
 	It is this highly effective combination of three actives which gives Triple Dry the ability to keep heavy perspirers dry for up to 72 hours."
         },
         {
             name: "Uber",
-            link: "https://www.uber.com/",
-            img: "uber.png",
+            website: "https://www.uber.com/",
+            img: "http://i.imgur.com/SP7oI1v.png",
             description: "Uber is evolving the way the world moves. By seamlessly connecting riders to drivers through our apps, we make cities more accessible, opening up more possibilities for riders and more business for drivers. From our founding in 2009 to our launches in hundreds of cities today, Uber's rapidly expanding global presence continues to bring people and their cities closer."
         },
         {
             name: "ViewQwest",
-            link: "https://www.viewqwest.com/",
-            img: "viewquest.png",
+            website: "https://www.viewqwest.com/",
+            img: "http://i.imgur.com/iweG4MH.png",
             description: "ViewQwest  strives to empower our  subscribers with the freedom to access entertainment  content and to surf with no limitations.
 
 	With  Freedom  VPN,  users  are  empowered  to  watch  hundreds,  if  not  thousands,  of  Movies,  TV shows and more, from a plethora of online streaming services such as Netflix, Hulu, PPTV China.
@@ -454,20 +454,20 @@ Each week, we reward selected users who have 'smiled' 10 times or more with give
         },
         {
             name: "WOODS'",
-            link: "http://www.woods-singapore.com/",
-            img: "woods.png",
+            website: "http://www.woods-singapore.com/",
+            img: "http://i.imgur.com/2yKXaJ5.png",
             description: "WOODS’ has been a trusted Cough Syrup specialist and leading provider for Expel Phlegm Fast and Relieving Cough for more than 100 years since it’s first introduced in Year 1905. It is our commitment to provide consumers with a fast and safe cough solutions whenever it is needed."
         },
         {
             name: "Singapore World Water Day",
-            link: "http://www.singaporeworldwaterday.com",
-            img: "world_water_day.png",
-            description: ""
+            website: "http://www.singaporeworldwaterday.com",
+            img: "http://i.imgur.com/96UoZa0.png",
+            description: "test"
         },
         {
             name: "Yakult Singapore",
-            link: "https://yakult.com.sg/",
-            img: "yakult.png",
+            website: "https://yakult.com.sg/",
+            img: "http://i.imgur.com/j6FYxOi.png",
             description: "Yakult was first introduced to Singaporeans in 1979 with the incorporation of Yakult Singapore in 1978.
 
 	Although Yakult Singapore started humbly in three containers at Hillview Avenue, it operates today from a multi­million dollar ultra­modern plant at Senoko Avenue.
@@ -478,14 +478,14 @@ Each week, we reward selected users who have 'smiled' 10 times or more with give
         },
         {
             name: "Zalora",
-            link: "http://www.zalora.sg/",
-            img: "zalora.png",
+            website: "http://www.zalora.sg/",
+            img: "http://i.imgur.com/i2hMgsF.png",
             description: "Asia’s leading online fashion destination! Gone are the days where you had to trawl through malls and stores in Singapore to find that perfect outfit. Now that fashion item that you need is just a few clicks away when you shop with ZALORA Singapore. Choose from our extensive collection of brands, both international and local, where you can mix and match between them to create the outfit that expresses your personality. ZALORA Singapore brings you the top brands where you can select the best and stay ahead of the fashion curve. Get decked out from head to foot in the latest trends; from shoes to shirts, dresses and skirts, lingerie, swimwear, outerwear and accessories too! Looking great also means taking care of your skin. Face masks, serums and creams. You name, we have it. All your needs to look great and feel great is right here when you shop with us, at ZALORA Singapore."
         },
         {
             name: "Zookal",
-            link: "https://www.zookal.com.sg/",
-            img: "zookal.png",
+            website: "https://www.zookal.com.sg/",
+            img: "http://i.imgur.com/TgnEi6M.png",
             description: "Zookal was created by university students in Australia in 2011. After personally experiencing the pain of expensive textbooks, the founders decided that they would create a better option for students. Here was born the idea of textbook rental, allowing students to save up to 70% off on their required course materials ­ saving students hundreds and even thousands of dollars throughout their degree.
 
 	Having started the company to positively impact the lives of university students and quickly grown to serve hundreds of thousands of students in Australia, the founders have now dreamed of even bigger goals — leveraging technology to enhance the modern university experience for students. Zookal’s new video platform will allow university students thorughout Asia to share knowledge and discover the supplementary educational resources they need to learn faster and be more successful."
