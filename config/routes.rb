@@ -44,6 +44,9 @@ Rails.application.routes.draw do
         # events
         resources :events
 
+        # sponsors
+        resources :sponsors
+
         # blast
         namespace :blast do
           get '/', to: "/mc/blast#home"
