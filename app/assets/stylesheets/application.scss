@@ -11,12 +11,12 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require foundation_and_overrides
  *= require font-awesome
  *= require magnific
  *= require custom_fonts
  *= require owl_carousel
  *= require foundation_calendar
+ *= require foundation_and_overrides
  *= require jquery.gridster
  *= require_tree .
  *= require_self
