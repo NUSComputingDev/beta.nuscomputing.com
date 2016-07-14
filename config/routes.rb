@@ -47,6 +47,12 @@ Rails.application.routes.draw do
         # sponsors
         resources :sponsors
 
+        # sponsors
+        namespace :people, path: 'people' do
+          get '/', to: '/mc/people#index'
+          resources :mc_members, path: 'members'
+        end
+
         # blast
         namespace :blast do
           get '/', to: "/mc/blast#home"

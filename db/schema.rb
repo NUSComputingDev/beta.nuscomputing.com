@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160712143426) do
+ActiveRecord::Schema.define(version: 20160714141714) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -226,11 +226,14 @@ ActiveRecord::Schema.define(version: 20160712143426) do
   end
 
   create_table "mc_wings", force: :cascade do |t|
-    t.integer  "wingid",     limit: 4
-    t.string   "wingname",   limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "wingid",       limit: 4
+    t.string   "wingname",     limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "mc_member_id", limit: 4
   end
+
+  add_index "mc_wings", ["mc_member_id"], name: "index_mc_wings_on_mc_member_id", using: :btree
 
   create_table "members", force: :cascade do |t|
     t.string   "email",               limit: 255, default: "",              null: false
@@ -283,4 +286,5 @@ ActiveRecord::Schema.define(version: 20160712143426) do
     t.string   "name",                limit: 255
   end
 
+  add_foreign_key "mc_wings", "mc_members"
 end

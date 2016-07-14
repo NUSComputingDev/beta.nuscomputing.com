@@ -12,8 +12,8 @@ class PagesController < ApplicationController
 	end
 
 	def about
-		@members = McMember.all
-		@wings = McWing.all
+		@members = McMember.order('wingid', 'wingrank', 'cellrank')
+		@wings = McWing.order('wingid')
 	end
 
 	def event
