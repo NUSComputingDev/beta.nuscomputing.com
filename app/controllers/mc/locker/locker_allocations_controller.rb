@@ -12,8 +12,12 @@ class Mc::Locker::LockerAllocationsController < Mc::BaseController
 			if @allocations
 				format.js {}
 			end
+      format.csv {
+        @allocations = LockerAllocation.all
+        send_data @allocations.to_csv, filename: 'allocations.csv', type: 'text/csv'
+      }
 		end
-	end
+  end
 
 	def new
 		@allocation = LockerAllocation.new

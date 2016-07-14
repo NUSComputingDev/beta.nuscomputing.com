@@ -16,16 +16,19 @@
     <%= link_to new_mc_locker_locker_allocation_path, class: 'button radius success expand' do %>
       <%= fa_icon 'plus', text: 'Create Allocation', right: true %>
     <% end %>
+    <%= link_to mc_locker_locker_allocations_path(format: 'csv'), class: "button radius expand" do %>
+      <%= fa_icon 'download', text: 'Download All', right: true %>
+	  <% end %>
   </div>
 
   <div class="columns small-12">
     <%= simple_form_for :locker_allocation, url: mc_locker_locker_allocations_path, method: :get, remote: true do |f|  %>
       <%= f.input :year, collection: LockerRound.order(acad_year: :desc), label_method: :acad_year, value_method: :acad_year, include_blank: false %>
-      <%= f.button :submit, 'Retrieve Allocations', class: 'radius info button expand', name: nil %>
+      <%= f.button :submit, 'Retrieve Allocations', class: 'radius info button expand', name: 'retrieve' %>
     <% end %>
 
     <div class="allocation-data">
-      <%= render partial: 'allocations', locals: { allocations: @allocations } %>
+      <%#= render partial: 'allocations', locals: { allocations: @allocations } %>
     </div>
   </div>
 
