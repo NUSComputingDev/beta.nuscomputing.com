@@ -46,7 +46,7 @@
                   <%= link_to 'Start Allocation',
                               mc_locker_allocate_path(round, :round => round),
                               method: :post,
-                              data: {confirm: "Allocating lockers for #{round.name}. Are you sure?"},
+                              data: {confirm: "Allocating lockers for #{round.name}. Are you sure?", disable_with: 'Please wait...'},
                               class: 'button radius small success expand' %>
                 </li>
               <% end %>

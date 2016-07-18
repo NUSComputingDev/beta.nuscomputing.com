@@ -48,7 +48,7 @@ class Portal::Locker::LockerBallotsController < Portal::BaseController
   end
 
   def mail_notify(user, ballot)
-    BallotNotifier.submitted_ballot_to_user(user, ballot).deliver_now
-    BallotNotifier.submitted_ballot_to_bot(user, ballot).deliver_now
+    BallotNotifier.submitted_ballot_to_user(user, ballot).deliver_later
+    BallotNotifier.submitted_ballot_to_bot(user, ballot).deliver_later
   end
 end

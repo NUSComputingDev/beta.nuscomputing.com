@@ -18,7 +18,7 @@ class Mc::Locker::LockerRoundsController < Mc::BaseController
   	respond_to do |format|
 			if @round.save
 				AllocateLockerJob.set(wait_until: @round.end).perform_later(@round.id)
-  			format.html { redirect_to mc_locker_locker_rounds_path, notice: "New locker round added" }
+  			format.html { redirect_to mc_locker_locker_rounds_path, notice: 'New locker round added' }
   			format.json { render json: @round, status: :created, location: @round }
   			format.js {}
 			else
@@ -34,7 +34,7 @@ class Mc::Locker::LockerRoundsController < Mc::BaseController
   def update
   	respond_to do |format|
 			if @round.update round_params
-  			format.html { redirect_to mc_locker_locker_round_path, notice: "Locker round editted" }
+  			format.html { redirect_to mc_locker_locker_round_path, notice: 'Locker round edited' }
   			format.json { render json: @round, status: :created, location: @round }
   			format.js {}
 			else
@@ -59,7 +59,7 @@ class Mc::Locker::LockerRoundsController < Mc::BaseController
 		unless @round.allocated
       @round.update allocated: true
 			AllocateLockerJob.perform_later params[:round]
-			redirect_to mc_locker_locker_round_path, notice: "Allocation for this round has started."
+			redirect_to mc_locker_locker_round_path, notice: "Allocation for round \"#{@round.name}\" has started."
 		end
 	end
 
