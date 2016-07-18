@@ -46,7 +46,7 @@ class Mc::Locker::LockersController < Mc::BaseController
 
   def destroy
     respond_to do |format|
-      if @locker.allocations
+      if @locker.allocations.any?
         format.html { redirect_to :back, alert: "Delete allocations for Locker #{@locker.number} before deleting locker" }
       elsif @locker.destroy
         format.html { redirect_to mc_locker_lockers_path, notice: "Locker #{@locker.number} successfully destroyed" }

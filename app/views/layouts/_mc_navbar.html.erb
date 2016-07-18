@@ -27,13 +27,6 @@
       <ul class="right">
         <% if member_signed_in? %>
           <li><%= link_to 'Logout', destroy_member_session_path, id: 'btn-logout', method: :delete %></li>
-          <!--<li class="has-dropdown">-->
-          <!--<a href="#">Profile</a>-->
-          <!--<ul class="dropdown">-->
-          <!--<li><a href="#">Edit Profile</a></li>-->
-          <!--<li class="active"><a href="#">Add Personality</a></li>-->
-          <!--</ul>-->
-          <!--</li>-->
         <% else %>
           <li><%= link_to 'MC Login', '/auth/google_oauth2', id: 'btn-login' %></li>
         <% end %>
