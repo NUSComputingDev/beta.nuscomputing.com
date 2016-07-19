@@ -5,6 +5,7 @@ class Mc::Locker::LockerAllocationsController < Mc::BaseController
 		@allocations = nil
 		if params[:locker_allocation] && params[:locker_allocation][:year]
 			@allocations = LockerAllocation.joins(:round, :user).where('acad_year = ?', params[:locker_allocation][:year]).order("uid").page params[:page]
+			@acad_year = params['locker_allocation']['year']
 		end
 
 		respond_to do |format|

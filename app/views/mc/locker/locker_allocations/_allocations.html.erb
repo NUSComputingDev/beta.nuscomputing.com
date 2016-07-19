@@ -1,16 +1,21 @@
-<table width="100%">
-  <thead>
-  <tr>
-    <th>User</th>
-    <th>Faculty</th>
-    <th>Locker</th>
-    <th>Last Updated</th>
-    <th>Action</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% if allocations %>
-    <% allocations.each do |allocation| %>
+<% if @allocations.any? %>
+  <div style="text-align: center;">
+    <p>
+      <strong><%= @allocations.count %> allocations for <%= @acad_year %></strong>
+    </p>
+  </div>
+  <table width="100%">
+    <thead>
+    <tr>
+      <th>User</th>
+      <th>Faculty</th>
+      <th>Locker</th>
+      <th>Last Updated</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @allocations.each do |allocation| %>
       <tr id='<%= "allocation-#{allocation.id}" %>'>
         <td><%= allocation.user.uid %></td>
         <td><%= allocation.user.faculty %></td>
@@ -24,7 +29,13 @@
         </td>
       </tr>
     <% end %>
-    <%#= paginate allocations %>
-  <% end %>
-  </tbody>
+    <%#= paginate @allocations %>
+</tbody>
 </table>
+<% else %>
+	<div style="text-align: center;">
+		<p>
+			<strong>No allocations for <%= @acad_year %>!</strong>
+		</p>
+	</div>
+<% end %>
