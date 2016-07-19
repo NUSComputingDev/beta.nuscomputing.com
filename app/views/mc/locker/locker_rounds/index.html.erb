@@ -42,7 +42,13 @@
             <ul class="button-group stack radius">
               <li><%= link_to 'View', mc_locker_locker_round_path(round), class: 'button small radius info expand' %></li>
               <li>
-                <%= button_to "#{(DateTime.now > round.end) && !round.allocated ? 'Start Allocation' : 'Allocation Disabled'}",
+                <%= button_to "#{ if round.allocated
+                                    'Allocation Done'
+                                  elsif DateTime.now > round.end
+                                    'Start Allocation'
+                                  else
+                                    'Round still open'
+                                  end }",
                               mc_locker_allocate_path(round, :round => round),
                               method: :post,
                               data: { confirm: "Allocating lockers for #{round.name}. Are you sure?", disable_with: 'Please wait...' },

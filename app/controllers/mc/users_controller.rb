@@ -14,6 +14,7 @@ class Mc::UsersController < Mc::BaseController
 
 	def create
 		@user = User.new(user_params)
+    @user.uid = @user.uid.downcase
 
     # default values for those not assigned
     @user.provider = 'ivle';
