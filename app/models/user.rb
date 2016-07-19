@@ -15,9 +15,12 @@ class User < ActiveRecord::Base
   def self.from_omniauth(auth)
 		where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
 			# Adding extra information here from the hash returned by Omniauth:IVLE
+      logger.fatal('TROLOLOLOLOLOL I\'M IN FROM OMNIAUTH HAHAHA')
 			user.faculty = auth.extra['profile']['Faculty']
       user.name = auth.extra['profile']['Name']
 			user.email = auth.info['email']
+      logger.fatal(auth.info.pretty_print_inspect)
+      #user.first_major =
 		end
 	end
 end
