@@ -29,7 +29,7 @@
       </tr>
       <tr>
         <th>Second Major</th>
-        <td><%= @user.second_major || @user.second_major.empty? ? 'N/A' : @user.second_major %></td>
+        <td><%= @user.second_major || (@user.second_major.empty? ? 'N/A' : @user.second_major) %></td>
       </tr>
       <tr>
         <th>Matriculation Year</th>
