@@ -15,9 +15,9 @@
     <% ballots.each do |ballot| %>
       <tr id='<%= "ballot-#{ballot.id}" %>'>
         <td><%= ballot.user.uid %></td>
-        <td><%= ballot.user.faculty.empty? ? 'N/A' : ballot.user.faculty %></td>
-        <td><%= ballot.user.first_major.empty? ? 'N/A' : ballot.user.first_major %></td>
-        <td><%= ballot.user.second_major.empty? ? 'N/A' : ballot.user.second_major %></td>
+        <td><%= ballot.user.faculty || 'N/A' %></td>
+        <td><%= ballot.user.first_major || 'N/A' %></td>
+        <td><%= ballot.user.second_major || 'N/A' %></td>
         <td><%= ballot.location %></td>
         <td><%= local_time ballot.updated_at %></td>
         <td>
