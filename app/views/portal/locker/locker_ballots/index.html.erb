@@ -6,52 +6,16 @@
   </div>
 
   <% if locker_allocated?(current_user) %>
-    <div class="columns small-12">
-      <p>
-        You have already been allocated a locker for this year. Your locker number is: <strong><%= current_user.current_locker.name if current_user.current_locker %></strong>
-      </p>
-      <p>
-        See more details of your locker allocation in your <%= link_to 'profile', portal_profile_path %>.
-        If there are any issues, please contact us at <%= mail_to 'connect@nuscomputing.com' %>.
-      </p>
-    </div>
+    <%= render 'allocated' %>
 
-  <% elsif @round %>
-    <div class="columns small-12 medium-8">
-      <h3><small>Ballot for: <%= @round.name %></small></h3>
-      <p>
-        If you are a Computing undergraduate, you are automatically eligible to ballot for a locker.
-        Please submit your ballot while the balloting round is still open.
-      </p>
-      <p>
-        The ballot simply consists of choosing the desired location where you would like your locker to be.
-	      Check the <%= link_to 'information page', portal_locker_path %> to see where the locations are.
-      </p>
-      <% if @ballot.persisted? %>
-        <p>
-          You have made a ballot for <strong>Location <%= @ballot.location %></strong>
-        </p>
-	    <% end %>
-      <p>
-        You can edit or cancel your ballot any time you like while the round is open.
-      </p>
-    </div>
+  <% elsif @round # if there is an active round %>
+    <%= render 'ballot' %>
 
-    <div class="columns small-12 medium-4">
-      <% if @ballot.persisted? %>
-        <h5 class="bold">Update Ballot</h5>
-      <% else %>
-        <h5 class="bold">Submit Ballot</h5>
-      <% end %>
-      <h6 class="subheader"><%= @round.name %></h6>
-      <%= render 'form' %>
-    </div>
-
-  <% else %>
-    <div class="columns small-12">
-      <p>There is no Balloting Round at the moment. Please check the schedule <%= link_to 'here', portal_locker_path %>.</p>
-    </div>
+  <% else # no active round and no allocation %>
+    <%= render 'closed' %>
 
   <% end %>
+
+  <%= render 'guidelines' %>
 
 </div>
