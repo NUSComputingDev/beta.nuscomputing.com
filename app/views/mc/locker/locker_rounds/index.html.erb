@@ -47,7 +47,7 @@
                                   elsif DateTime.now > round.end
                                     'Start Allocation'
                                   else
-                                    'Round still open'
+                                    'Round Not Closed'
                                   end }",
                               mc_locker_allocate_path(round, :round => round),
                               method: :post,
