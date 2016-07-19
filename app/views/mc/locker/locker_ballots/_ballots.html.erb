@@ -1,4 +1,11 @@
-<table width="100%">
+<% if @ballots.any? %>
+  <div style="text-align: center;">
+    <p>
+      <strong><%= @ballots.count %> ballots for <%= @round_name %></strong>
+    </p>
+  </div>
+	
+  <table width="100%">
   <thead>
   <tr>
     <th>User</th>
@@ -11,8 +18,7 @@
   </tr>
   </thead>
   <tbody>
-  <% if ballots %>
-    <% ballots.each do |ballot| %>
+    <% @ballots.each do |ballot| %>
       <tr id='<%= "ballot-#{ballot.id}" %>'>
         <td><%= ballot.user.uid %></td>
         <td><%= ballot.user.faculty || 'N/A' %></td>
@@ -28,7 +34,13 @@
         </td>
       </tr>
     <% end %>
-    <%#= paginate ballots %>
-  <% end %>
+    <%#= paginate @ballots %>
   </tbody>
 </table>
+<% else %>
+  <div style="text-align: center;">
+    <p>
+      <strong>No ballots for <%= @round_name %>!</strong>
+    </p>
+  </div>
+<% end %>

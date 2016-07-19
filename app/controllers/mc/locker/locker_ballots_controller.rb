@@ -4,7 +4,8 @@ class Mc::Locker::LockerBallotsController < Mc::BaseController
 	def index
 		@ballots = nil
 		if params[:locker_ballot] && params[:locker_ballot][:round]
-			@ballots = LockerBallot.joins(:user).where('locker_round_id = ?', params[:locker_ballot][:round]).order("uid").page params[:page]
+			@ballots = LockerBallot.joins(:user).where('locker_round_id = ?', params[:locker_ballot][:round]).order('uid').page params[:page]
+			@round_name = LockerRound.find(params['locker_ballot']['round']).name
 		end
 
 		respond_to do |format|
@@ -27,7 +28,7 @@ class Mc::Locker::LockerBallotsController < Mc::BaseController
 
 		respond_to do |format|
 			if @ballot.save
-				format.html { redirect_to mc_locker_locker_ballots_path, notice: "New Ballot added" }
+				format.html { redirect_to mc_locker_locker_ballots_path, notice: 'New Ballot added' }
 				format.json { render json: @ballot, status: :created, location: @ballot }
 				format.js {}
 			else
@@ -51,10 +52,10 @@ class Mc::Locker::LockerBallotsController < Mc::BaseController
 	def destroy
 		respond_to do |format|
 			if @ballot.destroy
-				format.html { redirect_to mc_locker_locker_ballots_path, notice: "Ballot successfully destroyed" }
+				format.html { redirect_to mc_locker_locker_ballots_path, notice: 'Ballot successfully destroyed' }
 				format.js {}
 			else
-				format.html { redirect_to :back, notice: "Cannot destroy" }
+				format.html { redirect_to :back, notice: 'Cannot destroy' }
 			end
 		end
 	end
