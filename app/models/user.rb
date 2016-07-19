@@ -13,7 +13,11 @@ class User < ActiveRecord::Base
 
   def current_locker
 		locker_allocations.active.first.locker if locker_allocations.active.first
-	end
+  end
+
+  def uid_and_name
+    return "#{self.uid} (#{self.name})"
+  end
 
   def self.from_omniauth(auth)
 		where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
