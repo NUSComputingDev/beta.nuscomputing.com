@@ -6,7 +6,7 @@
     <h3>Balloting Round Management</h3>
     <p>
       Manage the ballot rounds here. Create a new round or remove an unused one. Allocate lockers from here as well.
-	    Use the Resque Server to track allocation jobs.
+      Use the Resque Server to track allocation jobs.
     </p>
     <p>
       Note: The Start Allocation button will only be activated for rounds that have ended and have yet to be allocated.
@@ -41,15 +41,16 @@
           <td>
             <ul class="button-group stack radius">
               <li><%= link_to 'View', mc_locker_locker_round_path(round), class: 'button small radius info expand' %></li>
-              <% if DateTime.now > round.end && !round.allocated %>
-                <li>
-                  <%= link_to 'Start Allocation',
+              <li>
+                <%= button_to "#{(DateTime.now > round.end) && !round.allocated ? 'Start Allocation' : 'Allocation Disabled'}",
                               mc_locker_allocate_path(round, :round => round),
                               method: :post,
-                              data: {confirm: "Allocating lockers for #{round.name}. Are you sure?", disable_with: 'Please wait...'},
-                              class: 'button radius small success expand' %>
-                </li>
-              <% end %>
+                              data: { confirm: "Allocating lockers for #{round.name}. Are you sure?", disable_with: 'Please wait...' },
+                              class: 'button radius small success expand',
+                              id: "alloc-button-#{round.id}",
+                              disabled: !((DateTime.now > round.end) && !round.allocated)
+                %>
+              </li>
             </ul>
           </td>
         </tr>
