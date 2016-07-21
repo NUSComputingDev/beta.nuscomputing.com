@@ -42,4 +42,5 @@ bower.json
 /public/ckeditor_assets
 /public/system
 
-
+# Ignore nohup.out
+nohup.out
