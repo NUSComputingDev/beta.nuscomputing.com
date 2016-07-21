@@ -17,7 +17,10 @@ class Portal::Locker::LockerBallotsController < Portal::BaseController
 		respond_to do |format|
 			if DateTime.now <= @ballot.round.end && @ballot.save
         mail_notify(current_user, @ballot)
-				format.html { redirect_to portal_locker_locker_ballots_path, notice: 'Ballot Application submitted!' }
+				format.html {
+          redirect_to portal_locker_locker_ballots_path,
+                      notice: 'Ballot application submitted! Please check your NUS email for confirmation. Do contact us at connect@nuscomputing.com if there are any issues.'
+				}
 				format.json { render json: @ballot, status: :created, location: @ballot }
 			else
 				format.html { redirect_to portal_locker_locker_ballots_path }
@@ -29,7 +32,8 @@ class Portal::Locker::LockerBallotsController < Portal::BaseController
 	def update
 		if @ballot.update(ballot_params)
       mail_notify(current_user, @ballot)
-			redirect_to portal_locker_locker_ballots_path, notice: 'Ballot updated!'
+			redirect_to portal_locker_locker_ballots_path,
+                  notice: 'Ballot updated! Please check your NUS email for confirmation. Do contact us at connect@nuscomputing.com if there are any issues.'
 		end
 	end
 
